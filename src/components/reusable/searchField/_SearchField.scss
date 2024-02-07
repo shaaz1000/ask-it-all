@@ -1,0 +1,28 @@
+.SearchField {
+    position: relative;
+    display: inline-block;
+    input {
+        stroke: #666666;
+        border-radius: 9px;
+        border: 1px solid;
+        height: 28px;
+        padding-left: 35px;
+        font-size: medium;
+        width: 90px;
+        background-color: F7F7F7;
+    }
+    .searchBtn {
+        position: absolute;
+        top: 50%;
+        left: 8px;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        img{ 
+            width: 24px;
+            height: auto;
+        }
+    }
+}

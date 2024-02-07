@@ -1,0 +1,11 @@
+.Header {
+    padding: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .headerGroup {
+        width: 28%;
+        display: flex;
+        justify-content: space-between;
+    }
+}

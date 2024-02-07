@@ -1,0 +1,16 @@
+.Website {
+  height: 100%;
+  .frame1 {
+    background-image: url("../../static/assets/svg/frames/Frame_1.svg");
+    height: 100% !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .frame2 {
+    h2 {
+      padding: 1% 5%;
+      font-size: 32pt;
+    }
+  }
+}
