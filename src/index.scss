@@ -1,0 +1,13 @@
+#root {
+    .light-faded-frame {
+        background-color: rgba(255, 255, 255, 0.2);
+        position: relative;
+        border-radius: 3%;
+    }
+    .btn {
+        color: #666666;
+        .faded-borders {
+            border: 1px solid #a6b1af;
+        }
+    }
+}

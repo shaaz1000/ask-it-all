@@ -8,9 +8,94 @@
     background-size: cover;
   }
   .frame2 {
+    top: 25%;
+    left: 2%;
+    width: 35%;
+    height: 50%;
+    .content {
+      padding-left: 8%;
+      padding-top: 15%;
+      right: 8%;
+      position: absolute;
+      h2 {
+        margin: 5px 0;
+      }
+      .SearchField {
+        width: 100%;
+      }
+    }
+  }
+  .frame3 {
+    height: 45%;
     h2 {
-      padding: 1% 5%;
-      font-size: 32pt;
+      padding-left: 2%;
+      font-size: 18pt;
+    }
+  }
+  .frame4 {
+    height: 45%;
+    h2 {
+      font-weight: 500;
+      padding-left: 2%;
+    }
+  }
+  .frame6 {
+    height: 80%;
+    padding: 2% 0;
+    margin-bottom: 8%;
+    h2 {
+      font-weight: 500;
+      padding-left: 2%;
+    }
+    .background {
+      background-image: url("../../static/assets/png/Frame_2.png");
+      height: 100% !important;
+      background-repeat: no-repeat;
+      background-size: contain;
+      z-index: 2;
+    }
+  }
+  .frame5 {
+    background-color: #eb5757;
+    min-height: 40%;
+  }
+  .frame7 {
+    height: 40%;
+  }
+  .signup-info {
+    height: 80%;
+    text-align: center;
+    padding: 2% 20% 0;
+
+    .poppins-italic {
+      color: white;
+      font-size: 18px;
+      font-style: italic;
+    }
+  }
+  .count {
+    padding: 50px 0;
+    text-align: -webkit-center;
+    .container {
+      display: table-cell;
+      width: 60%;
+      h1 {
+        text-align: center;
+        color: white;
+        margin-bottom: 40px;
+      }
+      .number-card {
+        background-color: rgba(255, 255, 255, 0.6);
+        height: 100px;
+        text-align: center;
+        padding: 10px;
+        border-radius: 8px;
+        .poppins-bold {
+          line-height: 0;
+          margin: 30px;
+          font-size: 60px;
+        }
+      }
     }
   }
 }

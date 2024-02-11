@@ -9,7 +9,7 @@ import Select from "../reusable/select/plainSelect/Select";
 
 function Header() {
   let navigate = useNavigate();
-  
+
   const handleLoginClick = () => {
     navigate(LOGIN);
   };
@@ -18,10 +18,9 @@ function Header() {
     <div className="Header">
       <Avatar src="" sx={{ width: 30, height: 30 }} />
       <div className="headerGroup">
-        <SearchField />
-        <Select/>
-        <Button label="Log in" onClick={handleLoginClick} />
-        
+        <SearchField placeholder={"Search..."}/>
+        <Select />
+        <Button width={"25%"} label="Log in" onClick={handleLoginClick} />
       </div>
     </div>
   );
