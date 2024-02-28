@@ -1,0 +1,113 @@
+// LoginPage.scss
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #EB5757; // Example background color
+
+  .login-header {
+    text-align: center;
+
+    h1 {
+      color: #333; // Replace with actual color from design
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #666; // Replace with actual color from design
+      font-size: 0.9rem;
+    }
+  }
+
+  .login-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-top: 2rem;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .social-login {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        button {
+          background: #eee; // Example background color
+          border: none;
+          padding: 0.75rem;
+          border-radius: 4px;
+          cursor: pointer;
+
+          &:hover {
+            background: darken(#eee, 5%);
+          }
+        }
+      }
+
+      input {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+
+        &::placeholder {
+          color: #999;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: #555; // Example focus color
+        }
+      }
+
+      button[type="submit"] {
+        padding: 0.75rem;
+        background: #db3d44; // Replace with actual button color from design
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+          background: darken(#db3d44, 10%);
+        }
+      }
+    }
+
+    .login-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      margin-top: 1rem;
+
+      a {
+        color: #db3d44; // Use the primary button color for links
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Media queries for responsive adjustments
+@media (max-width: 768px) {
+  .login-container {
+    padding: 1rem;
+  }
+
+  .login-form {
+    width: 90%;
+  }
+}
