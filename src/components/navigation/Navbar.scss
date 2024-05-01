@@ -1,0 +1,14 @@
+.navigation-bar {
+    
+    .nav-container {
+        border-bottom: 1px solid #C4C4C4;
+        padding: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo {
+            cursor: pointer;
+        }
+    }
+    
+}

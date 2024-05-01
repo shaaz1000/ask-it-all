@@ -1,0 +1,14 @@
+.homepage {
+    .MuiPaper-root {
+        min-width: 14%;
+        padding: 1% 2%;
+    }
+    .profile-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+            margin: 0;
+        }
+    }
+}

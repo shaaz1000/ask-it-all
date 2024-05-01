@@ -1,0 +1,21 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10%;
+    .menu-list {
+        color: #202020;
+        background-color: #fff;
+        padding: 0;
+        .MuiListItem-root:hover {
+            background: #fff;
+        }
+        :hover,
+        .Mui-selected {
+            color: #eb5757;
+        }
+        .menu-item-icon {
+            padding: 0 2%;
+            justify-content: center;     
+        }
+    }
+}
