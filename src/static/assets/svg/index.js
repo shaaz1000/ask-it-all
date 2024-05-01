@@ -6,6 +6,7 @@ import IconProfile from "./icons/Profile.svg";
 import IconReport from "./icons/Report.svg";
 import IconSettings from "./icons/Settings.svg";
 import IconLogout from "./icons/Logout.svg";
+import IconFilter from './icons/Filter.svg';
 
 export const LOGO = AssetLogo;
 
@@ -17,3 +18,4 @@ export const ICON_PROFILE = IconProfile;
 export const ICON_REPORT = IconReport;
 export const ICON_SETTINGS = IconSettings;
 export const ICON_LOGOUT = IconLogout;
+export const ICON_FILTER = IconFilter;

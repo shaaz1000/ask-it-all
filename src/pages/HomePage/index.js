@@ -15,43 +15,86 @@ import {
   ICON_REPORT,
   ICON_SETTINGS,
 } from "../../static/assets/svg";
-import Menu from "../../components/reusable/menu";
+import Menu from "../../components/menu";
+import { useLocation, useNavigate } from "react-router";
+import {
+  BOOKINGS,
+  HISTORY,
+  PAYMENT,
+  PROFILE,
+  REPORT,
+  TERMS_AND_CONDITIONS,
+  pageMapper,
+} from "../../utils/constants";
 
-function Homepage() {
+function Homepage({ children }) {
   const { isLoggedIn } = useAuth();
-  
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const overviewFields = [
-    { label: "Profile", icon: <img src={ICON_PROFILE} /> },
-    { label: "Bookings", icon: <img src={ICON_BOOKING} /> },
-    { label: "Payment", icon: <img src={ICON_PAYMENT} /> },
-    { label: "History", icon: <img src={ICON_HISTORY} /> },
-    { label: "Report", icon: <img src={ICON_REPORT} /> },
+    {
+      label: "Profile",
+      icon: <img src={ICON_PROFILE} />,
+      onClick: () => navigate(PROFILE),
+    },
+    {
+      label: "Bookings",
+      icon: <img src={ICON_BOOKING} />,
+      onClick: () => navigate(BOOKINGS),
+    },
+    {
+      label: "Payment",
+      icon: <img src={ICON_PAYMENT} />,
+      onClick: () => navigate(PAYMENT),
+    },
+    {
+      label: "History",
+      icon: <img src={ICON_HISTORY} />,
+      onClick: () => navigate(HISTORY),
+    },
+    {
+      label: "Report",
+      icon: <img src={ICON_REPORT} />,
+      onClick: () => navigate(REPORT),
+    },
   ];
+
   const settingsFields = [
-    { label: "Settings", icon: <img src={ICON_SETTINGS} /> },
+    {
+      label: "Settings",
+      icon: <img src={ICON_SETTINGS} />,
+      onClick: () => navigate(TERMS_AND_CONDITIONS),
+    },
     { label: "Logout", icon: <img src={ICON_LOGOUT} /> },
   ];
 
   return isLoggedIn ? (
     <div className="homepage">
-      <DashboardMenu anchor={"left"}>
-        <div className="homepage-menu">
-          <img src={logo} />
-          <span className="homepage-menu-container">
-            <Menu label="OVERVIEW" selectedIndex={1} data={overviewFields} />
-
-            <Menu label="SETTINGS" data={settingsFields} />
-          </span>
-        </div>
-      </DashboardMenu>
-      <DashboardMenu anchor={"right"}>
-        <div className="profile-menu">
-          <p className="poppins-semibold">Your Profile</p>
-          <IconButton disableRipple>
-            <MoreVert />
-          </IconButton>
-        </div>
-      </DashboardMenu>
+      <div className="homepage-container">
+        <DashboardMenu anchor={"left"}>
+          <div className="homepage-menu">
+            <img src={logo} onClick={() => navigate(PROFILE)} className="logo"/>
+            <span className="homepage-menu-container">
+              <Menu
+                label="OVERVIEW"
+                selectedIndex={pageMapper[location.pathname]}
+                data={overviewFields}
+              />
+              <Menu label="SETTINGS" data={settingsFields} />
+            </span>
+          </div>
+        </DashboardMenu>
+        {children}
+        <DashboardMenu anchor={"right"}>
+          <div className="profile-menu">
+            <p className="poppins-semibold">Your Profile</p>
+            <IconButton disableRipple>
+              <MoreVert />
+            </IconButton>
+          </div>
+        </DashboardMenu>
+      </div>
     </div>
   ) : (
     <Website />
