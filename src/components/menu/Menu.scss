@@ -4,11 +4,11 @@
     padding-top: 10%;
     .menu-list {
         color: #202020;
-        background-color: #fff;
         padding: 0;
-        .MuiListItem-root:hover {
-            background: #fff;
-        }
+        width: 100%;
+        // .MuiListItem-root:hover {
+        //     background: #fff;
+        // }
         :hover,
         .Mui-selected {
             color: #eb5757;

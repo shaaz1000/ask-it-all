@@ -19,6 +19,7 @@ function Menu({ label, data, selectedIndex }) {
               <ListItemButton
                 type="secondary"
                 disableGutters
+                onClick={li.onClick}
                 selected={selectedIndex == index}
               >
                 <ListItemIcon

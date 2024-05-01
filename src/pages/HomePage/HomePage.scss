@@ -1,14 +1,33 @@
 .homepage {
-    .MuiPaper-root {
-        min-width: 14%;
-        padding: 1% 2%;
-    }
-    .profile-menu {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        p {
-            margin: 0;
+    // background-color: #80808012;
+    height: 100%;
+    .homepage-container {
+        height: 100%;
+        width: 60%;
+        padding: 3% 0;
+        margin: 0 auto;
+        .logo {
+            cursor: pointer;
+        }
+        .MuiPaper-root {
+            min-width: 14%;
+            padding: 1% 2%;
+        }
+        .profile-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            p {
+                margin: 0;
+            }
+        }
+        .search-field {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .bookings-search {
+            width: 95%;
         }
     }
 }
