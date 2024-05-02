@@ -1,0 +1,15 @@
+.user-info {
+    display: flex;
+    // justify-content: space-evenly;
+    .avatar {
+        align-self: center;
+        padding: 0;
+        margin-right: 10px;
+    }
+    p {
+        margin: 0;
+    }.poppins-light {
+        color: #5F5F5F;
+        font-size: 12px;
+    }
+}
