@@ -1,6 +1,7 @@
 import React from "react";
 import "./InstructorDetailsTable.scss";
 import { Chip } from "@mui/material";
+import UserInfo from "../userInfo";
 
 function InstructorDetailsTable({ data }) {
   return (
@@ -23,7 +24,7 @@ function InstructorDetailsTable({ data }) {
           </tr>
           {data?.map((li, index) => (
             <tr key={index}>
-              <td>{li.name}</td>
+              <td><UserInfo profileImage={li.image} title={li.name} subtitle={li.date}/></td>
               <td>
                 <Chip label={li.category} className="chip-color-peach" />
               </td>

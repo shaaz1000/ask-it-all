@@ -23,6 +23,7 @@ export const mockInstructorData = [
       date: "25/02/2023",
       category: "FRONTEND",
       concept: "Understanding concept of React",
+      image: "",
       actions: () => console.log("Show details clicked"),
     },
     {
@@ -30,6 +31,7 @@ export const mockInstructorData = [
       date: "25/02/2023",
       category: "BACKEND",
       concept: "Understanding concept of Python",
+      image: "",
       actions: () => console.log("Show details clicked"),
     },
   ];
