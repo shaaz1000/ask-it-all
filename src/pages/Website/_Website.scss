@@ -98,21 +98,52 @@
       margin: 0 auto;
     }
     .content-container {
+      padding: 5% 0;
       display: flex;
-      justify-content: space-around;
-      .card {
-        text-align: center;
-        padding: 5% 8%;
-        background-color: #eb57575d;
-        .wrapped-text {
-          padding: 0 2%;
+      justify-content: space-evenly;
+      .steps {
+        display: flex;
+        height: -moz-fit-content;
+        height: fit-content;
+        width: 40%;
+        flex-direction: column;
+        text-align: left;
+        .flex-content-without-space {
+          margin: 3% 0;
+          .MuiPaper-root{ 
+            width: 100%;
+          }
+        }
+        p {
+          margin: auto 15px;
+          font-size: larger;
+          color: #860000;
+        }
+        .icon-color {
+          color: #860000;
+        }
+        .MuiAccordionDetails-root {
+          color: #5F5F5F;
+          font-size: small;
+        }
+      }
+      .img-card {
+        width: 40%;
+        .MuiPaper-root {
+          border-radius: 30px;
+        }
+        .card {
+          border-radius: 30px;
+          text-align: center;
+          padding: 5% 8%;
+          background-color: #eb57573c;
+          .wrapped-text {
+            padding: 0 2%;
+          }
         }
       }
     }
-    .MuiPaper-root {
-      width: 40%;
-      border-radius: 30px;
-    }
+
     .subtext {
       color: #202020;
     }

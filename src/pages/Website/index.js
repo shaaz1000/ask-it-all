@@ -1,6 +1,13 @@
 import React from "react";
 import "./_Website.scss";
-import { Card, IconButton, Stack } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Card,
+  IconButton,
+  Stack,
+} from "@mui/material";
 import Frame4_1 from "../../static/assets/svg/frames/frame4_1.png";
 import Frame4_2 from "../../static/assets/svg/frames/Frame4_2.png";
 import Frame4_3 from "../../static/assets/svg/frames/Frame4_3.png";
@@ -8,7 +15,7 @@ import Frame6_1 from "../../static/assets/svg/frames/Frame6_1.png";
 import Button from "../../components/reusable/button/Button";
 import Footer from "./Footer";
 import UserInfo from "../../components/userInfo";
-import { East, West } from "@mui/icons-material";
+import { East, ExpandMore, West } from "@mui/icons-material";
 import Frame2 from "../../static/assets/png/Frame_2.png";
 import {
   ICON_CALL,
@@ -76,15 +83,58 @@ function Website() {
             friendly interface, we re-define the learning experience.
           </p>
           <div className="content-container">
-            <Card>
-              <div className="card">
-                <h2>01</h2>
-                <p className="poppins-semibold wrapped-text">
-                  Sign Up For One Of Our Services{" "}
-                </p>
-                <img src={Frame6_1} />
+            <div className="img-card">
+              <Card>
+                <div className="card">
+                  <h2>01</h2>
+                  <p className="poppins-semibold wrapped-text">
+                    Sign Up For One Of Our Services{" "}
+                  </p>
+                  <img src={Frame6_1} />
+                </div>
+              </Card>
+            </div>
+            <div className="steps">
+              <div className="flex-content-without-space">
+                <p className="poppins-semibold">01</p>
+                <Accordion>
+                  <AccordionSummary
+                    className="poppins-semibold"
+                    expandIcon={<ExpandMore className="icon-color" />}
+                  >
+                    Sign Up
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    Sign up for one of our affordable subscription play which
+                    offer a variety of options to fit your unique needs.
+                  </AccordionDetails>
+                </Accordion>
               </div>
-            </Card>
+              <div className="flex-content-without-space">
+                <p className="poppins-semibold">02</p>
+                <Accordion>
+                  <AccordionSummary
+                    className="poppins-semibold"
+                    expandIcon={<ExpandMore className="icon-color" />}
+                  >
+                    Post/Answer a question
+                  </AccordionSummary>
+                  <AccordionDetails>Post/Answer a question</AccordionDetails>
+                </Accordion>
+              </div>
+              <div className="flex-content-without-space">
+                <p className="poppins-semibold">03</p>
+                <Accordion>
+                  <AccordionSummary
+                    className="poppins-semibold"
+                    expandIcon={<ExpandMore className="icon-color" />}
+                  >
+                    Advice & Earn
+                  </AccordionSummary>
+                  <AccordionDetails></AccordionDetails>
+                </Accordion>
+              </div>
+            </div>
           </div>
         </div>
       </div>
