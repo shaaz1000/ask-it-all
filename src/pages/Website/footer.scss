@@ -1,0 +1,42 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    .footer-title {
+        padding: 2% 5%;
+        font-size: small;
+    }
+    .footer-btn-group {
+        display: flex;
+        justify-content: space-between;
+        img {
+            cursor: pointer;
+        }
+    }
+
+    table {
+        width: 60%;
+        text-align: left;
+        color: #0e0f1d;
+        padding: 2% 0;
+        th {
+            padding-bottom: 3%;
+            width: 10%;
+        }
+        td {
+            font-size: small;
+            padding-bottom: 2%;
+        }
+        .inline-content {
+            display: flex;
+            align-items: center;
+            .MuiSvgIcon-root {
+                margin-right: 2%;
+            }
+        }
+        .social-media {
+            width: 70%;
+            justify-content: space-between;
+            display: flex;
+        }
+    }
+}

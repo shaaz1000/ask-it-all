@@ -7,6 +7,12 @@ import IconReport from "./icons/Report.svg";
 import IconSettings from "./icons/Settings.svg";
 import IconLogout from "./icons/Logout.svg";
 import IconFilter from './icons/Filter.svg';
+import MangCoding from './icons/mangacoding.svg';
+import GooglePlay from './icons/Googleplay.svg';
+import AppStore from './icons/AppleStore.svg';
+import RiidLogo from './icons/riidllogo1 1.svg';
+import IconCall from './icons/Call.svg';
+import FasterCaptialLogo from './icons/faster capital 1.svg';
 
 export const LOGO = AssetLogo;
 
@@ -19,3 +25,9 @@ export const ICON_REPORT = IconReport;
 export const ICON_SETTINGS = IconSettings;
 export const ICON_LOGOUT = IconLogout;
 export const ICON_FILTER = IconFilter;
+export const ICON_MANGCODING = MangCoding;
+export const BUTTON_GOOGLEPLAY = GooglePlay;
+export const BUTTON_APPSTORE = AppStore;
+export const LOGO_RIID = RiidLogo;
+export const LOGO_FasterCaptial = FasterCaptialLogo;
+export const ICON_CALL = IconCall;

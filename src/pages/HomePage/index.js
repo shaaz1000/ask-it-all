@@ -14,7 +14,7 @@ import {
   ICON_PROFILE,
   ICON_REPORT,
   ICON_SETTINGS,
-} from "../../static/assets/svg";
+} from "../../static/assets/svg/Icons";
 import Menu from "../../components/menu";
 import { useLocation, useNavigate } from "react-router";
 import {
