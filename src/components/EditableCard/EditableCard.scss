@@ -1,0 +1,34 @@
+.editable-card {
+    .title {
+        display: flex;
+        justify-content: space-between;
+        font-size: larger;
+        align-items: center;
+    }
+    .listitem {
+        padding: 10px 0;
+        .content {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            p {
+                margin: 0;   
+            }
+            .poppins-light {
+                color: gray;
+                font-size: small;
+            }
+            .Button {
+                padding: 2% 6%;
+                font-size: 0.7em;
+                height: fit-content;
+            }
+        }
+        .details {
+            padding: 0 10px;
+            width: 20%;
+        }
+    }
+
+}

@@ -26,6 +26,8 @@ import {
   TERMS_AND_CONDITIONS,
   pageMapper,
 } from "../../utils/constants";
+import ProfileInfo from "./ProfileInfo";
+import EditableCard from "../../components/EditableCard";
 
 function Homepage({ children }) {
   const { isLoggedIn } = useAuth();
@@ -74,7 +76,11 @@ function Homepage({ children }) {
       <div className="homepage-container">
         <DashboardMenu anchor={"left"}>
           <div className="homepage-menu">
-            <img src={logo} onClick={() => navigate(PROFILE)} className="logo"/>
+            <img
+              src={logo}
+              onClick={() => navigate(PROFILE)}
+              className="logo"
+            />
             <span className="homepage-menu-container">
               <Menu
                 label="OVERVIEW"
@@ -86,13 +92,48 @@ function Homepage({ children }) {
           </div>
         </DashboardMenu>
         {children}
-        <DashboardMenu anchor={"right"}>
+        <DashboardMenu anchor={"right"} sx={{width: 20}}>
           <div className="profile-menu">
             <p className="poppins-semibold">Your Profile</p>
             <IconButton disableRipple>
               <MoreVert />
             </IconButton>
           </div>
+          <ProfileInfo
+            userName={"Prashant Shah"}
+            creditCount={"100"}
+            userRole="Mentee"
+          />
+          <EditableCard
+            cardTitle={"Education"}
+            data={[
+              {
+                title: "Mumbai University",
+                subTitle: "Bachelors in Technology",
+              },
+              {
+                title: "Harvard University",
+                subTitle: "Masters in Software Developer",
+              },
+            ]}
+          />
+          <EditableCard
+            cardTitle={"Work Experience"}
+            data={[
+              {
+                title: "Deloitte",
+                subTitle: "Engineer (Current Job)",
+                details:
+                  "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",
+              },
+              {
+                title: "PWC",
+                subTitle: "software Developer (2018 to 2022)",
+                details:
+                  "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.",
+              },
+            ]}
+          />
         </DashboardMenu>
       </div>
     </div>

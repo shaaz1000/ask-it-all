@@ -30,4 +30,15 @@
             width: 95%;
         }
     }
+    .profile-info {
+        padding-top: 10%;
+        align-self: center;
+        text-align: center;
+        .profile-avatar {
+            border: 10px solid #eb5757;
+            height: 100px;
+            width: 100px;
+            padding: 5px;
+        }
+    }
 }
