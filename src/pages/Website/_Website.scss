@@ -1,9 +1,10 @@
 .Website {
   height: 100%;
+  width: fit-content;
   .frame1 {
     background-image: url("../../static/assets/svg/frames/Frame_1.svg");
     height: 100% !important;
-    background-position: center;
+    // background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }

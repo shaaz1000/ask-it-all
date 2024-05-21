@@ -10,6 +10,7 @@ import Profile from "./pages/HomePage/Profile";
 import Payment from "./pages/HomePage/Payment";
 import Reports from "./pages/HomePage/Reports";
 import History from "./pages/HomePage/History";
+import Advisor from "./pages/HomePage/Advisor";
 
 function AppRoutes() {
   return (
@@ -19,7 +20,15 @@ function AppRoutes() {
           <Route exact path="/" element={<Homepage />} />
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/signup" element={<SignupPage />} />
-          <Route exact path="/terms" element={<TermsPage />} />
+          <Route
+            exact
+            path="/terms"
+            element={
+              <Homepage>
+                <TermsPage />
+              </Homepage>
+            }
+          />
           <Route
             exact
             path="/bookings"
@@ -62,6 +71,15 @@ function AppRoutes() {
             element={
               <Homepage>
                 <Reports />
+              </Homepage>
+            }
+          />
+          <Route
+            exact
+            path="/advisor"
+            element={
+              <Homepage>
+                <Advisor />
               </Homepage>
             }
           />

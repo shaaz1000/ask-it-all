@@ -1,6 +1,5 @@
 import React from "react";
 import "./TermsPage.scss";
-import Navbar from "../../components/navigation";
 import IconButton from "@mui/material/IconButton";
 import { ArrowBack } from "@mui/icons-material";
 import TermsContent from "./TermsContent";
@@ -11,7 +10,6 @@ function TermsPage() {
   const navigate = useNavigate();
   return (
     <div>
-      <Navbar />
       <div className="terms-page">
         <div className="terms-title">
           <IconButton className="btn-back" onClick={() => navigate(HOMEPAGE)}>
