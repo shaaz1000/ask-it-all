@@ -101,6 +101,7 @@ function Homepage({ children }) {
       navigate(PROFILE);
     }
   }, []);
+  
   return isLoggedIn ? (
     <div>
       <Navbar

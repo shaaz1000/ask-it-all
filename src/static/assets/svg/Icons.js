@@ -14,6 +14,7 @@ import RiidLogo from './icons/riidllogo1 1.svg';
 import IconCall from './icons/Call.svg';
 import FasterCaptialLogo from './icons/faster capital 1.svg';
 import MockUserImage from '../svg/icons/MockUserImage.svg';
+import CashbackBgImage from '../svg/icons/coins.png';
 
 export const LOGO = AssetLogo;
 
@@ -33,3 +34,4 @@ export const LOGO_RIID = RiidLogo;
 export const LOGO_FasterCaptial = FasterCaptialLogo;
 export const ICON_CALL = IconCall;
 export const MOCK_USER_IMAGE = MockUserImage;
+export const CASHBACK_IMAGE = CashbackBgImage;

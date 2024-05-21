@@ -11,6 +11,7 @@ import Payment from "./pages/HomePage/Payment";
 import Reports from "./pages/HomePage/Reports";
 import History from "./pages/HomePage/History";
 import Advisor from "./pages/HomePage/Advisor";
+import Credits from "./pages/HomePage/Credits";
 
 function AppRoutes() {
   return (
@@ -80,6 +81,24 @@ function AppRoutes() {
             element={
               <Homepage>
                 <Advisor />
+              </Homepage>
+            }
+          />
+          <Route
+            exact
+            path="/credits"
+            element={
+              <Homepage>
+                <Credits />
+              </Homepage>
+            }
+          />
+          <Route
+            exact
+            path="/advisor_profile"
+            element={
+              <Homepage>
+                <Credits />
               </Homepage>
             }
           />

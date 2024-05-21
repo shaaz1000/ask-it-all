@@ -19,6 +19,7 @@ import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import Button from "../../../components/reusable/button/Button";
 import { MOCK_USER_IMAGE } from "../../../static/assets/svg/Icons";
+import Ratings from "../../../components/ratings/Ratings";
 
 function Advisor() {
   const navigate = useNavigate();
@@ -80,6 +81,7 @@ function Advisor() {
                       <p className="poppins-regular">
                         Experience - {item.experience}
                       </p>
+                      <Ratings value={5}/>
                     </div>
                   </div>
                   <Divider />
