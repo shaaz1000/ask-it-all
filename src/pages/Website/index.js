@@ -8,6 +8,7 @@ import Frame4_1 from "../../static/assets/svg/frames/frame4_1.png";
 import Frame4_2 from "../../static/assets/svg/frames/Frame4_2.png";
 import Frame4_3 from "../../static/assets/svg/frames/Frame4_3.png";
 import Frame6_1 from "../../static/assets/svg/frames/Frame6_1.png";
+import Button from "../../components/reusable/button/Button";
 
 function Website() {
   const data = [
@@ -56,7 +57,14 @@ function Website() {
               Join a thriving ecosystem where minds connect, ambitions are
               ignited and learning becomes a shared journey.
             </p>
-            <SearchField placeholder={"ask a question..."} />
+            <Button
+              color="#EB5757"
+              fontColor="white"
+              width={"35%"}
+              label="Book an Advisor"
+              onClick={() => {}}
+            />
+            {/* <SearchField placeholder={"ask a question..."} /> */}
           </div>
         </div>
       </div>
@@ -114,8 +122,11 @@ function Website() {
             <p className="poppins-semibold wrapped-text">
               Sign Up For One Of Our Services{" "}
             </p>
-            <img src={Frame6_1}/>
-            <p>Sign up for one of our affordable subscription play which offer a variety.</p>
+            <img src={Frame6_1} />
+            <p>
+              Sign up for one of our affordable subscription play which offer a
+              variety.
+            </p>
           </div>
         </div>
       </div>

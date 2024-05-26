@@ -64,17 +64,24 @@ function Homepage({ children }) {
     {
       label: "Settings",
       icon: <img src={ICON_SETTINGS} />,
-      onClick: () => navigate(TERMS_AND_CONDITIONS),
+      onClick: () => {
+        console.log("hello");
+        navigate(TERMS_AND_CONDITIONS);
+      },
     },
     { label: "Logout", icon: <img src={ICON_LOGOUT} /> },
   ];
-
+  console.log(isLoggedIn);
   return isLoggedIn ? (
     <div className="homepage">
       <div className="homepage-container">
         <DashboardMenu anchor={"left"}>
           <div className="homepage-menu">
-            <img src={logo} onClick={() => navigate(PROFILE)} className="logo"/>
+            <img
+              src={logo}
+              onClick={() => navigate(PROFILE)}
+              className="logo"
+            />
             <span className="homepage-menu-container">
               <Menu
                 label="OVERVIEW"

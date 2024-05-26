@@ -1,0 +1,74 @@
+.book-advisor-page {
+  padding: 20px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .back-button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      padding: 8px;
+
+      input {
+        border: none;
+        background: none;
+        outline: none;
+        padding: 4px 8px;
+        width: 200px;
+      }
+
+      .search-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+    }
+
+    .filter-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .balance-info {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-right: 10px;
+      }
+
+      .add-credits-button {
+        background-color: #56ccf2;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: #4ab0e0;
+        }
+      }
+    }
+  }
+
+  .advisor-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+}
