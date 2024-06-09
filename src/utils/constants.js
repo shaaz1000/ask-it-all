@@ -8,7 +8,7 @@ export const PAYMENT = `/payment`;
 export const HISTORY = `/history`;
 export const REPORT = `/report`;
 export const PROFILE = `/profile`;
-export const ADVISOR = `/Advisors`;
+export const ADVISOR = `/advisors`;
 
 export const pageMapper = {
   [PROFILE]: 0,

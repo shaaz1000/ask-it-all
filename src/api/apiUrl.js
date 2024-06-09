@@ -7,4 +7,5 @@ export const urls = {
   mentorSignup: `${baseUrl}/mentors/signup`,
   mentorLogin: `${baseUrl}/mentors/login`,
   getAllMentors: `${baseUrl}/mentors`,
+  getSingleUser: `${baseUrl}/users`,
 };

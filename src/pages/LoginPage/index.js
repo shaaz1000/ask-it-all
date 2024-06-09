@@ -3,15 +3,53 @@ import "./LoginPage.scss"; // Import your CSS styles as needed
 import { SIGNUP } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 import headerImage from "../../static/assets/svg/icons/Saly-1.svg";
+import Snackbar from "../../components/Snackbar/index";
+import {
+  validateEmail,
+  validatePassword,
+  validateContactNumber,
+} from "../../utils/Validators";
+import { setUser } from "../../redux/features/user/userSlice";
+import { login } from "../../redux/features/auth/authSlice";
+import { makeApiCall } from "../../api/config";
+import { urls } from "../../api/apiUrl";
+import { useDispatch } from "react-redux";
 
 function LoginPage() {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [snackbar, setSnackbar] = useState(null);
   const navigate = useNavigate();
-  const handleLogin = (event) => {
-    event.preventDefault();
-    // Handle the login logic here, possibly sending a request to a server
-    console.log("Logging in with:", username, password);
+  const handleLogin = async (event) => {
+    try {
+      event.preventDefault();
+      let errorMessage = "";
+      if (!validateEmail(username)) {
+        errorMessage = "Invalid email address";
+      } else if (!validatePassword(password)) {
+        errorMessage = "Password must be at least 6 characters";
+      }
+
+      if (errorMessage) {
+        setSnackbar({ message: errorMessage, color: "red", icon: "✖️" });
+        return;
+      }
+
+      const userData = {
+        email: username,
+        password,
+      };
+
+      const response = await makeApiCall("POST", urls.login, userData);
+      dispatch(setUser(response.user));
+      localStorage.setItem("token", response.token);
+      localStorage.setItem("userId", response.user._id);
+      dispatch(login());
+      navigate("/profile");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleSignUpClick = () => {
@@ -20,6 +58,13 @@ function LoginPage() {
 
   return (
     <div className="login-page">
+      {snackbar && (
+        <Snackbar
+          message={snackbar.message}
+          color={snackbar.color}
+          icon={snackbar.icon}
+        />
+      )}
       <div className="login-container">
         <div className="login-header-container">
           <div className="login-header">

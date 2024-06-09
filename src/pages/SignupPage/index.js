@@ -1,25 +1,80 @@
-import React, { useState } from "react";
-import "./SignUpPage.scss"; // Make sure to create a corresponding SCSS file
-import Button from "../../components/reusable/button/Button";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import "./SignUpPage.scss";
 import { useNavigate } from "react-router";
 import { LOGIN } from "../../utils/constants";
 import headerImage from "../../static/assets/svg/icons/Saly-1.svg";
-
+import Snackbar from "../../components/Snackbar/index";
+import {
+  validateEmail,
+  validatePassword,
+  validateContactNumber,
+} from "../../utils/Validators";
+import { setUser } from "../../redux/features/user/userSlice";
+import { login } from "../../redux/features/auth/authSlice";
+import { makeApiCall } from "../../api/config";
+import { urls } from "../../api/apiUrl";
 function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [contact, setContact] = useState("");
   const [otp, setOtp] = useState("");
+  const [snackbar, setSnackbar] = useState(null);
   const navigate = useNavigate();
-  const handleSignUp = (event) => {
+  const dispatch = useDispatch();
+
+  const handleSignUp = async (event) => {
     event.preventDefault();
-    // Sign-up logic goes here
-    console.log("Signing up with:", email, password, contact, otp);
+
+    let errorMessage = "";
+    if (!validateEmail(email)) {
+      errorMessage = "Invalid email address";
+    } else if (!validatePassword(password)) {
+      errorMessage = "Password must be at least 6 characters";
+    } else if (!validateContactNumber(contact)) {
+      errorMessage = "Contact number must be 10 digits";
+    }
+
+    if (errorMessage) {
+      setSnackbar({ message: errorMessage, color: "red", icon: "✖️" });
+      return;
+    }
+
+    const userData = {
+      email,
+      password,
+      contactNumber: contact,
+    };
+
+    const response = await makeApiCall("POST", urls.signUp, userData);
+    dispatch(setUser(response.user));
+    dispatch(login());
+    navigate("/profile");
   };
 
-  const handleLoginClick = () => navigate(LOGIN);
+  useEffect(() => {
+    if (snackbar) {
+      const timer = setTimeout(() => {
+        setSnackbar(null);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [snackbar]);
+
+  const handleLoginClick = () => {
+    navigate(LOGIN);
+  };
+
   return (
     <div className="signup-page">
+      {snackbar && (
+        <Snackbar
+          message={snackbar.message}
+          color={snackbar.color}
+          icon={snackbar.icon}
+        />
+      )}
       <div className="signup-container">
         <div className="signup-header-container">
           <div className="signup-header">
@@ -33,7 +88,7 @@ function SignUpPage() {
               learning experience.
             </p>
           </div>
-          <img src={headerImage} />
+          <img src={headerImage} alt="Header" />
         </div>
       </div>
       <div className="signup-form">

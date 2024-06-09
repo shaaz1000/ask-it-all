@@ -14,6 +14,39 @@ const advisors = [
     rate: 25,
     image: "path-to-image.jpg", // Update the path to the advisor's image
   },
+  {
+    id: 2,
+    name: "Rohan Verma",
+    title: "Finance Expert",
+    experience: "Experience - 3 Years",
+    stars: 5,
+    minutesCompleted: 2500,
+    candidatesAdvised: 12,
+    rate: 25,
+    image: "path-to-image.jpg", // Update the path to the advisor's image
+  },
+  {
+    id: 3,
+    name: "Rohan Verma",
+    title: "Finance Expert",
+    experience: "Experience - 3 Years",
+    stars: 5,
+    minutesCompleted: 2500,
+    candidatesAdvised: 12,
+    rate: 25,
+    image: "path-to-image.jpg", // Update the path to the advisor's image
+  },
+  {
+    id: 4,
+    name: "Rohan Verma",
+    title: "Finance Expert",
+    experience: "Experience - 3 Years",
+    stars: 5,
+    minutesCompleted: 2500,
+    candidatesAdvised: 12,
+    rate: 25,
+    image: "path-to-image.jpg", // Update the path to the advisor's image
+  },
   // Add more advisor objects here
 ];
 

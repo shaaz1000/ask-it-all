@@ -1,5 +1,6 @@
 import React from "react";
-import { useAuth } from "../../context/AuthContext";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../redux/features/auth/authSlice";
 import Website from "../Website";
 import DashboardMenu from "./DashboardMenu";
 import logo from "../../static/assets/svg/ASK-IT-ALL.svg";
@@ -26,11 +27,16 @@ import {
   TERMS_AND_CONDITIONS,
   pageMapper,
 } from "../../utils/constants";
-
+import UserProfile from "../UserProfile/Index";
 function Homepage({ children }) {
-  const { isLoggedIn } = useAuth();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   const overviewFields = [
     {
@@ -69,9 +75,13 @@ function Homepage({ children }) {
         navigate(TERMS_AND_CONDITIONS);
       },
     },
-    { label: "Logout", icon: <img src={ICON_LOGOUT} /> },
+    {
+      label: "Logout",
+      icon: <img src={ICON_LOGOUT} />,
+      onClick: handleLogout,
+    },
   ];
-  console.log(isLoggedIn);
+
   return isLoggedIn ? (
     <div className="homepage">
       <div className="homepage-container">
@@ -93,13 +103,14 @@ function Homepage({ children }) {
           </div>
         </DashboardMenu>
         {children}
-        <DashboardMenu anchor={"right"}>
+        <DashboardMenu anchor={"right"} className="dashboard-menu-right">
           <div className="profile-menu">
             <p className="poppins-semibold">Your Profile</p>
             <IconButton disableRipple>
               <MoreVert />
             </IconButton>
           </div>
+          <UserProfile />
         </DashboardMenu>
       </div>
     </div>

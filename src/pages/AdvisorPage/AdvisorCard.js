@@ -1,48 +1,58 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./AdvisorCard.scss";
-import starIcon from "./path-to-star-icon.png"; // Update the path to your star icon image
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import Avatar from "../../assets/images/Avatar.png";
 
 const AdvisorCard = ({ advisor }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleCardClick = () => {
-    history.push(`/mentor-profile/${advisor.id}`);
+    navigate(`/mentor-profile/${advisor.id}`);
   };
 
   const handleConnectClick = (e) => {
     e.stopPropagation();
-    history.push(`/booking/${advisor.id}`);
+    navigate(`/booking/${advisor.id}`);
   };
 
   return (
     <div className="advisor-card" onClick={handleCardClick}>
-      <img
-        src={advisor.image}
-        alt={advisor.name}
-        className="advisor-card__image"
-      />
-      <div className="advisor-card__info">
-        <h3>{advisor.name}</h3>
-        <p>{advisor.title}</p>
-        <p>{advisor.experience}</p>
-        <div className="advisor-card__stars">
-          {[...Array(advisor.stars)].map((_, i) => (
-            <img
-              src={starIcon}
-              alt="star"
-              key={i}
-              className="advisor-card__star"
-            />
-          ))}
+      <div className="advisor-card__header">
+        <img src={Avatar} alt={advisor.name} className="advisor-card__image" />
+        <div className="advisor-card__info">
+          <h3 className="advisor-card__name">{advisor.name}</h3>
+          <p className="advisor-card__title">{advisor.title}</p>
+          <p className="advisor-card__experience">{advisor.experience}</p>
+          <div className="advisor-card__stars">
+            {[...Array(5)].map((_, i) => (
+              <StarBorderIcon
+                key={i}
+                className={`advisor-card__star ${
+                  i < advisor.stars ? "filled" : ""
+                }`}
+              />
+            ))}
+          </div>
         </div>
-        <p>{advisor.minutesCompleted} mins completed</p>
-        <p>Advised {advisor.candidatesAdvised} candidates</p>
-        <p className="advisor-card__rate">₹{advisor.rate}/- per minute</p>
       </div>
-      <button className="advisor-card__connect" onClick={handleConnectClick}>
-        Connect
-      </button>
+      <div className="advisor-card__additional">
+        <p className="advisor-card__minutes">
+          {advisor.minutesCompleted} mins completed
+        </p>
+        <p className="advisor-card__candidates">
+          Advised {advisor.candidatesAdvised} candidates
+        </p>
+        <div className="advisor-card__footer">
+          <p className="advisor-card__rate">₹{advisor.rate}/- per minute</p>
+          <button
+            className="advisor-card__connect"
+            onClick={handleConnectClick}
+          >
+            Connect
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
