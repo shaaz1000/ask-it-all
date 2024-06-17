@@ -6,8 +6,11 @@ import { ICON_FILTER } from "../../../static/assets/svg";
 import PreviewContentCard from "../../../components/previewContentCard";
 import InstructorDetailsTable from "../../../components/instructorDetailsTable";
 import { mockInstructorData } from "../../../utils/constants";
+import { useLocation, useNavigate } from "react-router";
 
 function Profile() {
+  const navigate = useNavigate();
+
   return (
     <div className="profile">
       <div className="search-field">
@@ -26,22 +29,24 @@ function Profile() {
         <img src={ICON_FILTER} />
       </div>
       <div className="banner">
-        <p>SOLVE DOUBTS!</p>
+       <div style={{marginLeft:"24px",width:"90%"}}>
+       <p>SOLVE DOUBTS!</p>
         <p className="poppins-semibold">You have a 100 credits!!</p>
-        <button className="poppins-semibold">Add Credits</button>
+        <button onClick={()=>navigate("/credit")} className="poppins-semibold">Add Credits</button>
+       </div>
       </div>
       <h2 className="poppins-medium">Analytics</h2>
       <div className="analytics">
         <Card className="card">
-          <p className="poppins-bold">27 Questions have been asked by you!</p>
+          <p style={{fontSize:"12px",lineHeight:"18px",fontWeight:"600px"}} className="poppins-bold">27 Questions have been asked by you!</p>
           <p>Ask some more!</p>
         </Card>
         <Card className="card">
-          <p className="poppins-bold">25 new Engineering mentors</p>
+        <p style={{fontSize:"12px",lineHeight:"18px",fontWeight:"600px"}}  className="poppins-bold">25 new Engineering mentors</p>
           <p>Connect with them!</p>
         </Card>
         <Card className="card">
-          <p className="poppins-bold">3827 minutes spent with mentors!</p>
+        <p style={{fontSize:"12px",lineHeight:"18px",fontWeight:"600px"}}  className="poppins-bold">3827 minutes spent with mentors!</p>
           <p>Reach out to your top mentors!</p>
         </Card>
       </div>

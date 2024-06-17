@@ -29,21 +29,25 @@ const UserProfile = () => {
   const handleDeleteWorkExperience = (index) => {
     dispatch(deleteWorkExperience(index));
   };
-
   return (
     <div className="profile">
       <div className="profile-header">
-        <img
-          src="/path/to/profile-image.jpg"
+        <img 
+          src={"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/1200px-Unknown_person.jpg"}
           alt="Profile"
-          className="profile-image"
+          style={{width:"100px",height:"100px"}}
         />
         <h2>{user.email ?? "AILA AILA"}</h2>
         <p className="credits">{user.totalCreditsAvailable ?? 1000} Credits</p>
         <p className="role">Mentee</p>
       </div>
       <div className="profile-section">
-        <h3>Education</h3>
+        <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",width:"300px"}}>
+        <h3 style={{marginBottom:'24px'}}>Education</h3>
+        <IconButton onClick={handleAddEducation}>
+          <AddCircleOutline />
+        </IconButton>
+        </div>
         {education.length > 0 ? (
           education.map((edu, index) => (
             <div key={index} className="profile-item">
@@ -62,12 +66,15 @@ const UserProfile = () => {
         ) : (
           <p>No education details available</p>
         )}
-        <IconButton onClick={handleAddEducation}>
-          <AddCircleOutline />
-        </IconButton>
+        
       </div>
       <div className="profile-section">
-        <h3>Work Experience</h3>
+      <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",width:"300px"}}>
+        <h3 style={{marginBottom:'24px'}}>Work Experience</h3>
+        <IconButton onClick={handleAddWorkExperience}>
+          <AddCircleOutline />
+        </IconButton>
+        </div>
         {workExperience.length > 0 ? (
           workExperience.map((work, index) => (
             <div key={index} className="profile-item">
@@ -87,9 +94,7 @@ const UserProfile = () => {
         ) : (
           <p>No work experience details available</p>
         )}
-        <IconButton onClick={handleAddWorkExperience}>
-          <AddCircleOutline />
-        </IconButton>
+       
       </div>
     </div>
   );

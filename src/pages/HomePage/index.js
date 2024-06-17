@@ -91,6 +91,7 @@ function Homepage({ children }) {
               src={logo}
               onClick={() => navigate(PROFILE)}
               className="logo"
+              style={{marginTop:'50px'}}
             />
             <span className="homepage-menu-container">
               <Menu
@@ -102,10 +103,12 @@ function Homepage({ children }) {
             </span>
           </div>
         </DashboardMenu>
+        <div style={{marginLeft:"240px"}}>
         {children}
-        <DashboardMenu anchor={"right"} className="dashboard-menu-right">
-          <div className="profile-menu">
-            <p className="poppins-semibold">Your Profile</p>
+        </div>
+        <DashboardMenu anchor={"right"}>
+          <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between", paddingLeft: "20px" ,paddingRight: "20px"}}>
+            <p>Your Profile</p>
             <IconButton disableRipple>
               <MoreVert />
             </IconButton>

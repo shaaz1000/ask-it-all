@@ -15,6 +15,8 @@ import Profile from "./pages/HomePage/Profile";
 import Payment from "./pages/HomePage/Payment";
 import Reports from "./pages/HomePage/Reports";
 import History from "./pages/HomePage/History";
+import AddCredit from "./pages/AddCredit/index";
+
 import BookAdvisorPage from "./pages/AdvisorPage/BookAdvisorPage";
 
 import { setUser } from "./redux/features/user/userSlice";
@@ -119,6 +121,17 @@ function AppRoutes() {
             <PrivateRoute>
               <Homepage>
                 <Reports />
+              </Homepage>
+            </PrivateRoute>
+          }
+        />
+         <Route
+          exact
+          path="/credit"
+          element={
+            <PrivateRoute>
+              <Homepage>
+                <AddCredit />
               </Homepage>
             </PrivateRoute>
           }

@@ -9,6 +9,8 @@ export const HISTORY = `/history`;
 export const REPORT = `/report`;
 export const PROFILE = `/profile`;
 export const ADVISOR = `/advisors`;
+export const ADDCREDIT = `/addcredit`;
+
 
 export const pageMapper = {
   [PROFILE]: 0,
