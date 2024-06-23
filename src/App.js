@@ -16,6 +16,7 @@ import Payment from "./pages/HomePage/Payment";
 import Reports from "./pages/HomePage/Reports";
 import History from "./pages/HomePage/History";
 import AddCredit from "./pages/AddCredit/index";
+import AdvisorPage from "./pages/AdvisorPage/AdvisorPage";
 
 import BookAdvisorPage from "./pages/AdvisorPage/BookAdvisorPage";
 
@@ -70,6 +71,18 @@ function AppRoutes() {
             </PrivateRoute>
           }
         />
+
+        <Route
+          path="/advisor_profile"
+          element={
+            <PrivateRoute>
+              <Homepage>
+                <AdvisorPage />
+              </Homepage>
+            </PrivateRoute>
+          }
+        />
+                              
         <Route
           exact
           path="/bookings"
@@ -81,17 +94,7 @@ function AppRoutes() {
             </PrivateRoute>
           }
         />
-        {/* <Route
-          exact
-          path="/profile"
-          element={
-            <PrivateRoute>
-              <Homepage>
-                <Profile />
-              </Homepage>
-            </PrivateRoute>
-          }
-        /> */}
+
         <Route
           exact
           path="/payment"
@@ -125,7 +128,7 @@ function AppRoutes() {
             </PrivateRoute>
           }
         />
-         <Route
+        <Route
           exact
           path="/credit"
           element={

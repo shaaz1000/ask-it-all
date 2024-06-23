@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import AdvisorCard from "./AdvisorCard";
 import "./BookAdvisorPage.scss";
+import Navbar from "../../components/navigation";
+import SearchIcon from "@mui/icons-material/Search";
 
 const advisors = [
   {
@@ -16,7 +18,7 @@ const advisors = [
   },
   {
     id: 2,
-    name: "Rohan Verma",
+    name: "vikas Sharma",
     title: "Finance Expert",
     experience: "Experience - 3 Years",
     stars: 5,
@@ -27,7 +29,7 @@ const advisors = [
   },
   {
     id: 3,
-    name: "Rohan Verma",
+    name: "Rahul Verma",
     title: "Finance Expert",
     experience: "Experience - 3 Years",
     stars: 5,
@@ -52,36 +54,49 @@ const advisors = [
 
 const BookAdvisorPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedAdvisor, setSelectedAdvisor] = useState(null);
+
 
   const filteredAdvisors = advisors.filter((advisor) =>
     advisor.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleAdvisorClick = (advisor) => {
+    console.log('Clicked advisor:', advisor);
+    setSelectedAdvisor(advisor);
+  };
+
   return (
-    <div className="book-advisor-page">
-      <div className="book-advisor-page__header">
-        <button className="back-button">&larr;</button>
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search a name"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <button className="search-button">🔍</button>
+    <>
+      {" "}
+      <Navbar />
+      <div className="book-advisor-page">
+        <div className="book-advisor-page__header">
+          <button className="back-button">&larr;</button>
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search a name"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <SearchIcon />
+          </div>
+          <button className="filter-button">Filter ▾</button>
+          <div className="balance-info">
+            <span>Balance - $100</span>
+            <button className="add-credits-button">Add Credits</button>
+          </div>
         </div>
-        <button className="filter-button">Filter ▾</button>
-        <div className="balance-info">
-          <span>Balance - $100</span>
-          <button className="add-credits-button">Add Credits</button>
-        </div>
-      </div>
-      <div className="advisor-list">
+        <div className="advisor-list">
         {filteredAdvisors.map((advisor) => (
+        <div key={advisor.id} onClick={() => handleAdvisorClick(advisor)}>
           <AdvisorCard key={advisor.id} advisor={advisor} />
-        ))}
+        </div>
+      ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

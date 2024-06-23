@@ -45,7 +45,7 @@ function SignUpPage() {
       password,
       contactNumber: contact,
     };
-
+    console.log("okks")
     const response = await makeApiCall("POST", urls.signUp, userData);
     dispatch(setUser(response.user));
     dispatch(login());

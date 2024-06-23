@@ -106,7 +106,7 @@ function Homepage({ children }) {
         <div style={{marginLeft:"240px"}}>
         {children}
         </div>
-        <DashboardMenu anchor={"right"}>
+        {/* <DashboardMenu anchor={"right"}>
           <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between", paddingLeft: "20px" ,paddingRight: "20px"}}>
             <p>Your Profile</p>
             <IconButton disableRipple>
@@ -114,7 +114,7 @@ function Homepage({ children }) {
             </IconButton>
           </div>
           <UserProfile />
-        </DashboardMenu>
+        </DashboardMenu> */}
       </div>
     </div>
   ) : (

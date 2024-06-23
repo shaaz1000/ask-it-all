@@ -5,15 +5,17 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 import Avatar from "../../assets/images/Avatar.png";
 
 const AdvisorCard = ({ advisor }) => {
+  console.log("advisor","advisor")
   const navigate = useNavigate();
-
+ 
   const handleCardClick = () => {
     navigate(`/mentor-profile/${advisor.id}`);
   };
 
   const handleConnectClick = (e) => {
+    console.log("advisor",advisor)
     e.stopPropagation();
-    navigate(`/booking/${advisor.id}`);
+    navigate(`/advisor_profile`, { state: { advisor } });
   };
 
   return (
@@ -29,7 +31,7 @@ const AdvisorCard = ({ advisor }) => {
               <StarBorderIcon
                 key={i}
                 className={`advisor-card__star ${
-                  i < advisor.stars ? "filled" : ""
+                  i < advisor?.stars ? "filled" : ""
                 }`}
               />
             ))}
