@@ -5,17 +5,18 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 import Avatar from "../../assets/images/Avatar.png";
 
 const AdvisorCard = ({ advisor }) => {
-  console.log("advisor","advisor")
   const navigate = useNavigate();
- 
-  const handleCardClick = () => {
-    navigate(`/mentor-profile/${advisor.id}`);
+
+  const handleCardClick = (e) => {
+    console.log("advisor", advisor);
+    e.stopPropagation();
+    navigate(`/advisor_profile`, { state: { advisor } });
   };
 
   const handleConnectClick = (e) => {
-    console.log("advisor",advisor)
     e.stopPropagation();
-    navigate(`/advisor_profile`, { state: { advisor } });
+    console.log("Connect button clicked");
+    // Additional logic for connect button can go here
   };
 
   return (

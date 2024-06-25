@@ -1,23 +1,25 @@
-.advisor-page {
+.pop-page {
   padding: 50px;
   background-color: #ffffff;
+  border: 41px solid #ebebeb;
+  padding: 10px;
 
-  .advisor-details {
+  .pop-details {
     display: flex;
 
-    .advisor_image {
+    .pop_image {
       width: 300px;
       padding: 20px;
-      .advisor_img {
+      .pop_img {
         width: 270px;
         object-fit: fill;
       }
     }
-    .advisor_about {
+    .pop_about {
       width: 350px;
       padding: 20px;
 
-      .advisor_about_text {
+      .pop_about_text {
         width: 350px;
         font-family: Poppins;
         font-size: 16px;
@@ -30,11 +32,11 @@
         margin-bottom: 10px;
       }
 
-      .advisor-card__stars {
+      .pop-card__stars {
         display: flex;
         margin-top: 4px;
 
-        .advisor-card__star {
+        .pop-card__star {
           font-size: 30px; // Adjust size as needed
           color: #d0d0d0; // Default color for empty stars
 
@@ -113,7 +115,7 @@
         }
       }
 
-      .advisor_about_text_paragraph {
+      .pop_about_text_paragraph {
         width: 350px;
         font-family: Poppins;
         font-size: 16px;
@@ -134,40 +136,64 @@
     gap: 20px;
   }
   .divider {
-    color: #ebebeb;
+    //   color: #ebebeb;
     border: 1px solid;
     margin-right: 20px;
   }
-  .advisor_description {
+  .pop_description {
     margin-top: 20px;
+    margin-left: 5%;
 
-    .advisor_about_text {
-      width: 350px;
-      font-family: Poppins;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 24px;
-      letter-spacing: -0.01em;
-      text-align: left;
-      color: #000000;
-      margin-top: 0px;
-      margin-bottom: 10px;
-    }
-    .advisor_about_text_paragraph {
-      width: 350px;
-      font-family: Poppins;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 24px;
-      letter-spacing: -0.01em;
-      text-align: left;
-      color: #747474;
-      margin-top: 0px;
-      margin-bottom: 10px;
+    .analytics {
+      h1 {
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: left;
+        width: 837px;
+      }
+      .analytics_container {
+        width: 900px;
+        height: 80px;
+        top: 452px;
+        left: 295px;
+        gap: 13px;
+        opacity: 0px;
+        //   border: 2px solid rebeccapurple;
+        display: flex;
+
+        .anaytics_data {
+          width: 270.67px;
+          height: 68px;
+          border-radius: 12px;
+          padding: 12px;
+          gap: 17px;
+          color: #ffffff;
+          box-shadow: 0px 14px 42px 0px #080f3426;
+
+          h4 {
+            font-family: Poppins;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 18px;
+            text-align: left;
+            color: #0e0f1d;
+          }
+          h5 {
+            font-family: Poppins;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 18px;
+            text-align: left;
+            color: #5f5f5f;
+          }
+        }
+      }
     }
   }
   .divider2 {
-    color: #ebebeb;
+    //   color: #ebebeb;
     border: 1px solid #ebebeb;
     width: 1200px;
     gap: 0px;
@@ -176,53 +202,7 @@
   }
 
   //   =========================Analytics==========================================
-  .analytics {
-    h1 {
-      font-family: Poppins;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 24px;
-      text-align: left;
-      width: 837px;
-    }
-    .analytics_container {
-      width: 900px;
-      height: 80px;
-      top: 452px;
-      left: 295px;
-      gap: 13px;
-      opacity: 0px;
-      //   border: 2px solid rebeccapurple;
-      display: flex;
 
-      .anaytics_data {
-        width: 270.67px;
-        height: 68px;
-        border-radius: 12px;
-        padding: 12px;
-        gap: 17px;
-        color: #ffffff;
-        box-shadow: 0px 14px 42px 0px #080f3426;
-
-        h4 {
-          font-family: Poppins;
-          font-size: 12px;
-          font-weight: 600;
-          line-height: 18px;
-          text-align: left;
-          color: #0e0f1d;
-        }
-        h5 {
-          font-family: Poppins;
-          font-size: 12px;
-          font-weight: 400;
-          line-height: 18px;
-          text-align: left;
-          color: #5f5f5f;
-        }
-      }
-    }
-  }
   &::after {
     content: "";
     position: absolute;
@@ -250,7 +230,7 @@
         text-align: left;
         position: relative;
         top: -23px;
-        left: 22px;
+        left: 6%;
       }
       .addIcon {
         position: relative;
@@ -259,11 +239,13 @@
       }
       .education_details {
         position: relative;
-        right: 103px;
+        right: 11%;
       }
       .education_fields {
         height: 36px;
         margin-top: 30px;
+        position: relative;
+        left: 19%;
 
         h4 {
           font-family: Poppins;
@@ -316,7 +298,7 @@
       }
       .work_experience_details {
         position: relative;
-        right: 150px;
+        right: 16%;
       }
       .work_experience_fields {
         height: 36px;
@@ -397,29 +379,80 @@
       display: flex;
       gap: 10px;
 
-      .fromDate , .toDate {
+      .fromDate,
+      .toDate {
         width: 24%;
         button {
-        font-family: Poppins;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 21px;
-        text-align: left;
-        color: gray;
-        border: 1px solid #3DA817;
-        padding: 5px;
-        // border-color:   #3DA817;
-        border-radius: 9px;
-      }}
+          font-family: Poppins;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 21px;
+          text-align: left;
+          color: gray;
+          border: 1px solid #3da817;
+          padding: 5px;
+          // border-color:   #3DA817;
+          border-radius: 9px;
+        }
+      }
     }
   }
 
+  .time_slider {
+    display: flex;
+    gap: 10%;
+    margin-top: 5%;
+    h3 {
+      font-family: Poppins;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 30px;
+      letter-spacing: -0.01em;
+      text-align: left;
+      margin-left: 3%;
+    }
+  }
+
+  .booking {
+    margin-left: 3%;
+
+     h3 {
+      font-family: Poppins;
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 22px;
+      width:13%;
+    }
+    .book_slot {
+      display: flex;
+    }
+    .timings {
+      display: flex;
+    }
+    .total_cost {
+      display: flex;
+    }
+  }
+
+
+  .Book{
+    button{
+      background-color:#EB5757;
+      border-radius: 3px;
+      color:white;
+      padding: 5px;
+      font-size: 15px;
+      font-family: Poppins;
+      width: 130px;
+      position: relative;
+      left: 90%;
+    }
+  }
   &::after {
     content: "";
     position: absolute;
     top: 48%;
     left: 0;
     width: 100%;
-    border-top: 1px solid #ebebeb; // Adjust color and width as needed
   }
 }
