@@ -55,13 +55,24 @@ function AppRoutes() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Homepage />} />
+        {/* <Route exact path="/" element={<Homepage />} /> */}
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/signup" element={<SignupPage />} />
         <Route exact path="/pop" element={  <PopUp />} />
         <Route exact path="/terms" element={<TermsPage />} />
         <Route exact path="/advisors" element={<BookAdvisorPage />} />
         <Route
+          exact
+          path="/"
+          element={
+            <PrivateRoute>
+              <Homepage>
+                <Profile />
+              </Homepage>
+            </PrivateRoute>
+          }
+        />
+          <Route
           exact
           path="/profile"
           element={
@@ -134,9 +145,7 @@ function AppRoutes() {
           path="/credit"
           element={
             <PrivateRoute>
-              <Homepage>
                 <AddCredit />
-              </Homepage>
             </PrivateRoute>
           }
         />
