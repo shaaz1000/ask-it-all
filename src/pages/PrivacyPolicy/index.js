@@ -1,13 +1,13 @@
 import React from "react";
-import "./TermsPage.scss";
+import "./PrivacyPage.scss";
 import Navbar from "../../components/navigation";
 import IconButton from "@mui/material/IconButton";
 import { ArrowBack } from "@mui/icons-material";
-import TermsContent from "./TermsContent";
 import { useNavigate } from "react-router";
 import { HOMEPAGE } from "../../utils/constants";
+import PrivacyPolicyContent from "./PolicyContent";
 
-function TermsPage() {
+function PolicyPage() {
   const navigate = useNavigate();
   return (
     <div>
@@ -17,20 +17,20 @@ function TermsPage() {
           <IconButton className="btn-back" onClick={() => navigate(HOMEPAGE)}>
             <ArrowBack />
           </IconButton>
-          <h1>Terms and Conditions</h1>
+          <h1>Privacy Policy</h1>
         </div>
         <div className="terms-content-container">
           <h3>Agreement</h3>
-          <TermsContent>
+          <PrivacyPolicyContent>
             <div className="terms-actions">
               <button className="secondary poppins-semibold">Cancel</button>
               <button className="cta poppins-semibold">Agree</button>
             </div>
-          </TermsContent>
+          </PrivacyPolicyContent>
         </div>
       </div>
     </div>
   );
 }
 
-export default TermsPage;
+export default PolicyPage;

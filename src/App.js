@@ -24,6 +24,8 @@ import { setUser } from "./redux/features/user/userSlice";
 import { login } from "./redux/features/auth/authSlice";
 import { makeApiCall } from "./api/config";
 import { urls } from "./api/apiUrl";
+import PolicyPage from "./pages/PrivacyPolicy";
+import RefundPolicyPage from "./pages/RefundPolicy";
 
 function AppRoutes() {
   const dispatch = useDispatch();
@@ -58,8 +60,10 @@ function AppRoutes() {
         {/* <Route exact path="/" element={<Homepage />} /> */}
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/signup" element={<SignupPage />} />
-        <Route exact path="/pop" element={  <PopUp />} />
+        <Route exact path="/pop" element={<PopUp />} />
         <Route exact path="/terms" element={<TermsPage />} />
+        <Route exact path="/refundpolicy" element={<RefundPolicyPage />} />
+        <Route exact path="/privacypolicy" element={<PolicyPage />} />
         <Route exact path="/advisors" element={<BookAdvisorPage />} />
         <Route
           exact
@@ -72,7 +76,7 @@ function AppRoutes() {
             </PrivateRoute>
           }
         />
-          <Route
+        <Route
           exact
           path="/profile"
           element={
@@ -145,7 +149,7 @@ function AppRoutes() {
           path="/credit"
           element={
             <PrivateRoute>
-                <AddCredit />
+              <AddCredit />
             </PrivateRoute>
           }
         />
