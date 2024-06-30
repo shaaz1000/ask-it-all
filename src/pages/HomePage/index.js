@@ -107,7 +107,7 @@ function Homepage({ children }) {
         {children}
         </div>
         <DashboardMenu anchor={"right"}>
-          <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between", paddingLeft: "20px" ,paddingRight: "20px"}}>
+          <div  className="mm" style={{display:"flex",flexDirection:"row",justifyContent:"space-between", paddingLeft: "20px" ,paddingRight: "20px"}}>
             <p style={{fontWeight:"600"}}>Your Profile</p>
             <IconButton disableRipple>
               <MoreVert />

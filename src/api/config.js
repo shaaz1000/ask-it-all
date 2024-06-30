@@ -26,3 +26,7 @@ export async function makeApiCall(method, url, data = null) {
     throw error; // Re-throw the error for proper handling
   }
 }
+
+
+
+

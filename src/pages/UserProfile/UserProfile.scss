@@ -1,9 +1,11 @@
+
+
 .profile {
   padding: 20px;
   display: flex;
   flex-direction: column;
   text-align: left;
-  width: 300px;
+  width: 500px;
   &-header {
     text-align: center;
     margin-bottom: 20px;
@@ -45,11 +47,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      p {
-        margin: 0;
-      }
-
+      max-width:330px;
+    
       button {
         background-color: #EB5757;
         color: #fff;
@@ -62,6 +61,15 @@
         }
       }
     }
+    
+    .edu_degree {
+      margin-left: 2px; 
+      margin-bottom:2px;
+      max-width: 200px;
+      word-wrap: break-word;
+    }
+    
+    
     .delete-button {
       background-color: #EB5757;
       color: #fff;
