@@ -3,14 +3,8 @@ import Drawer from "@mui/material/Drawer";
 
 function DashboardMenu({ anchor, children, className, sx, isOpen, setOpen }) {
   return (
-    <div className="dashboard-menu">
-      <Drawer
-        open={isOpen}
-        anchor={anchor}
-        className={className}
-        onClose={() => setOpen(false)}
-        sx={sx}
-      >
+    <div className={`dashboard-menu ${className}`}>
+      <Drawer variant="permanent" anchor={anchor} className={className}>
         {children}
       </Drawer>
     </div>

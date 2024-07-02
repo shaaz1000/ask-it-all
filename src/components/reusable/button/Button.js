@@ -6,17 +6,23 @@ function Button({
   onClick,
   width,
   height,
-  variant,
-  children,
-  className,
+  color = "white",
+  fontColor = "black",
 }) {
   return (
     <button
-      style={{ width, height }}
-      className={`Button ${variant} ${className}`}
+      style={{
+        width,
+        height,
+        backgroundColor: color,
+        paddingTop: 5,
+        paddingBottom: 5,
+        color: fontColor,
+      }}
+      className="Button"
       onClick={onClick}
     >
-      {label || children}
+      {label}
     </button>
   );
 }

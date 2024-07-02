@@ -8,6 +8,10 @@ import {
   IconButton,
   Stack,
 } from "@mui/material";
+import Header from "../../components/header/Header";
+import { useNavigate } from "react-router-dom";
+import QuestionCard from "../../components/reusable/questionCard/QuestionCard";
+import SearchField from "../../components/reusable/searchField/SearchField";
 import Frame4_1 from "../../static/assets/svg/frames/frame4_1.png";
 import Frame4_2 from "../../static/assets/svg/frames/Frame4_2.png";
 import Frame4_3 from "../../static/assets/svg/frames/Frame4_3.png";
@@ -22,8 +26,10 @@ import {
   LOGO_FasterCaptial,
   LOGO_RIID,
 } from "../../static/assets/svg/Icons";
+import { ADVISOR } from "../../utils/constants";
 
 function Website() {
+  const Navigate = useNavigate();
   const data = [
     {
       userName: "Jay Vaughun",
@@ -56,6 +62,7 @@ function Website() {
   ];
   return (
     <div className="Website">
+      <Header />
       <div className="frame1">
         <div className="light-faded-frame frame2">
           <div className="content">
@@ -69,7 +76,14 @@ function Website() {
               Join a thriving ecosystem where connections are made, and wisdom
               is exchanged.
             </p>
-            <Button label={"Book an Advisor"} variant={"cta"} />
+            <Button
+              color="#EB5757"
+              fontColor="white"
+              width={"35%"}
+              label="Book an Advisor"
+              onClick={() => Navigate(ADVISOR)}
+            />
+            {/* <SearchField placeholder={"ask a question..."} /> */}
           </div>
         </div>
       </div>

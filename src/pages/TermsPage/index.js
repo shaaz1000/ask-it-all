@@ -18,7 +18,7 @@ function TermsPage() {
           <h1>Terms and Conditions</h1>
         </div>
         <div className="terms-content-container">
-          <h3>Your Agreement</h3>
+          <h3>Agreement</h3>
           <TermsContent>
             <div className="terms-actions">
               <button className="secondary poppins-semibold">Cancel</button>

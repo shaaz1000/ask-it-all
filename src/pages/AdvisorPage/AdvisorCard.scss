@@ -1,0 +1,96 @@
+.advisor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin: 10px;
+  background-color: #fff;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  &__header {
+    display: flex;
+    width: 100%;
+  }
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 16px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__title,
+  &__experience,
+  &__minutes,
+  &__candidates {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+  }
+
+  &__stars {
+    display: flex;
+    margin-top: 4px;
+  }
+
+  &__star {
+    width: 16px;
+    height: 16px;
+
+    &.filled {
+      color: #ffcc00; // Assuming filled stars are yellow
+    }
+  }
+
+  &__additional {
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  &__rate {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  &__connect {
+    background-color: #eb5757;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #d64e4e;
+    }
+  }
+}

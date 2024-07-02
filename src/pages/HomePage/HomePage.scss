@@ -1,48 +1,158 @@
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation0.MuiDrawer-paper.MuiDrawer-paperAnchorRight.MuiDrawer-paperAnchorDockedRight.css-18sg6k4-MuiPaper-root-MuiDrawer-paper {
+  width: 400px;
+}
 .homepage {
-    // background-color: #80808012;
+  height: 100%;
+  display: flex;
+
+  .homepage-container {
+    display: flex;
     height: 100%;
-    // display: flex;
-    padding: 2% 5%;
-    .homepage-container {
-        // width: 60%;
-        // padding: 3% 0;
-        // margin: 0 auto; 
-         
-    }
-    
-    .logo {
+
+    .homepage-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 240px;
+      padding: 1%;
+      background-color: #f8f9fa;
+
+      .logo {
         cursor: pointer;
+        margin-bottom: 20px;
+      }
     }
-    .MuiPaper-root {
-        padding: 1% 2%;
-    }
-    .profile-menu {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        p {
+
+    .main-content {
+      display: flex;
+      width: calc(
+        100% - 500px
+      ); /* Adjust based on the width of both side menus */
+      padding: 20px;
+
+      .main-section {
+        width: 70%;
+        padding-right: 20px;
+
+        .balance-section {
+          background-color: #eb5757;
+          color: #fff;
+          padding: 20px;
+          border-radius: 10px;
+          text-align: center;
+          margin-bottom: 20px;
+
+          h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+          }
+
+          p {
+            font-size: 18px;
+            margin-bottom: 20px;
+          }
+
+          .add-credits-button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #333;
+            }
+          }
+        }
+
+        .analytics-section {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+
+          .analytics-item {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+
+            h3 {
+              font-size: 20px;
+              margin-bottom: 10px;
+            }
+
+            p {
+              font-size: 16px;
+            }
+          }
+        }
+
+        .upcoming-sessions-section,
+        .questions-answered-section {
+          margin-bottom: 20px;
+
+          h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+          }
+
+          .session-item,
+          .question-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+
+            .session-details,
+            .question-details {
+              p {
+                margin: 0;
+                font-size: 16px;
+              }
+
+              p:first-child {
+                font-weight: bold;
+                margin-bottom: 5px;
+              }
+            }
+
+            .details-button {
+              background-color: #eb5757;
+              color: #fff;
+              border: none;
+              padding: 5px 10px;
+              border-radius: 5px;
+              cursor: pointer;
+
+              &:hover {
+                background-color: #d64e4e;
+              }
+            }
+          }
+        }
+      }
+
+      .dashboard-menu-right {
+        width: 30%;
+        padding-left: 20px;
+
+        .profile-menu {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 10px;
+
+          p {
             margin: 0;
+          }
         }
+      }
     }
-    .search-field {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-    }
-    .bookings-search {
-        width: 95%;
-    }
-    .profile-info {
-        padding-top: 10%;
-        align-self: center;
-        text-align: center;
-        .profile-avatar {
-            border: 10px solid #eb5757;
-            height: 100px;
-            width: 100px;
-            padding: 5px;
-        }
-    }
+  }
 }
 .homepage-menu {
     padding: 5% 10%;

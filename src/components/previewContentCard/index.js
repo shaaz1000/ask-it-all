@@ -6,7 +6,7 @@ function PreviewContentCard({ title, onSeeAllClick, children }) {
   return (
     <div className="preview-card">
       <div className="preview-card-title">
-        <p className="poppins-medium">{title}</p>
+        <p style={{fontSize:"16px",lineHeight:"24px"}} className="poppins-medium">{title}</p>
         <a href="" onClick={onSeeAllClick}>
           See all
         </a>

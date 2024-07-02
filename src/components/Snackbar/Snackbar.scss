@@ -1,0 +1,28 @@
+.snackbar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px;
+  border-radius: 4px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 9999; // Ensure the snackbar appears above other content
+  animation: fadeInOut 5s linear;
+
+  &-icon {
+    margin-right: 8px;
+  }
+
+  @keyframes fadeInOut {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    10%,
+    90% {
+      opacity: 1;
+    }
+  }
+}
