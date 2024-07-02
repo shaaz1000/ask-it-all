@@ -25,11 +25,10 @@ const UserProfile = () => {
   const [isWorkExperienceModalOpen, setWorkExperienceModalOpen] =
     useState(false);
   const [profileDetails, setProfileDetails] = useState([]);
-  const [showConfirmation, setShowConfirmation] = useState(false);
   const [confirmationMessage, setConfirmationMessage] = useState("");
-  const [deleteIndex, setDeleteIndex] = useState(null);
-  const [deleteType, setDeleteType] = useState(""); // To distinguish between education and work experience
-
+  const [showPopup, setShowPopup] = useState(false);
+  const [deleteType, setDeleteType] = useState(""); 
+const [deleteIndex, setDeleteIndex] = useState(null);
   const userId = localStorage.getItem("userId");
 
   const handleAddEducation = () => {
@@ -40,132 +39,93 @@ const UserProfile = () => {
     setWorkExperienceModalOpen(true);
   };
 
-  // const handleDeleteEducation = (index) => {
-  //   setDeleteIndex(index);
-  //   setConfirmationMessage("Are you sure you want to delete this education detail?");
-  //   setDeleteType("education");
-  //   setShowConfirmation(true);
-  // };
+  
+  
+  // --------------------------------------------delete logic
+  const handleConfirmDelete = async ({ isConfirmed, index }) => {
+    setShowPopup(false);
+    if (isConfirmed) {
+      if (deleteType === "education") {
+        await handleDeleteEducation(index);
+      } else if (deleteType === "workExperience") {
+        await handleDeleteWorkExperience(index);
+      }
+    }
+  };
+  
+  const handleDeleteRequest = (type, index) => {
+    setConfirmationMessage(`Are you sure you want to delete this ${type} detail?`);
+    setDeleteType(type);
+    setDeleteIndex(index);
+    setShowPopup(true);
+  };
 
-  // const handleDeleteWorkExperience = (index) => {
-  //   setDeleteIndex(index);
-  //   setConfirmationMessage("Are you sure you want to delete this work experience detail?");
-  //   setDeleteType("workExperience");
-  //   setShowConfirmation(true);
-  // };
 
-  // const handleConfirmDelete = async () => {
-  //   setShowConfirmation(false);
-  //   const index = deleteIndex;
-  //   if (deleteType === "education") {
-  //     try {
-  //       const currentUserResponse = await makeApiCall("GET", `${urls.userDetails + userId}`);
-  //       let currentEducationArray = Array.isArray(currentUserResponse.user.education)
-  //         ? currentUserResponse.user.education
-  //         : [];
-  //       currentEducationArray.splice(index, 1); // Remove the selected education entry
-  //       const updatedEducationData = { education: currentEducationArray };
-  //       await makeApiCall("PUT", `${urls.userDetails + userId}`, updatedEducationData);
-  //       toast.success("Education details deleted successfully!");
-  //     } catch (error) {
-  //       console.error("Error deleting education details:", error);
-  //       toast.error("Failed to delete education details.");
-  //     }
-  //     dispatch(deleteEducation(index));
-  //   } else if (deleteType === "workExperience") {
-  //     try {
-  //       const currentUserResponse = await makeApiCall("GET", `${urls.userDetails + userId}`);
-  //       let currentWorkExperienceArray = Array.isArray(currentUserResponse.user.workExperience)
-  //         ? currentUserResponse.user.workExperience
-  //         : [];
-  //       currentWorkExperienceArray.splice(index, 1); // Remove the selected work experience entry
-  //       const updatedWorkExperienceData = { workExperience: currentWorkExperienceArray };
-  //       await makeApiCall("PUT", `${urls.userDetails + userId}`, updatedWorkExperienceData);
-  //       toast.success("Work experience details deleted successfully!");
-  //     } catch (error) {
-  //       console.error("Error deleting work experience details:", error);
-  //       toast.error("Failed to delete work experience details.");
-  //     }
-  //     dispatch(deleteWorkExperience(index));
-  //   }
-  // };
+
 
   const handleDeleteEducation = async (index) => {
-        setConfirmationMessage("Are you sure you want to delete this education detail?");
-    setDeleteType("education");
 
-      setShowConfirmation(true);
-
-    try {
-      if (userId) {
-        const currentUserResponse = await makeApiCall(
-          "GET",
-          `${urls.userDetails + userId}`
-        );
-        let currentEducationArray = Array.isArray(
-          currentUserResponse.user.education
-        )
-          ? currentUserResponse.user.education.slice() // Make a copy of the array
-          : [];
-        currentEducationArray.splice(index, 1); // Remove the selected education entry
-        const updatedEducationData = { education: currentEducationArray };
-        await makeApiCall(
-          "PUT",
-          `${urls.userDetails + userId}`,
-          updatedEducationData
-        );
-        toast.success("Education details deleted successfully!");
-      }
-      dispatch(deleteEducation(index));
+     try {
+        if (userId) {
+            const currentUserResponse = await makeApiCall(
+                "GET",
+                `${urls.userDetails + userId}`
+            );
+            let currentEducationArray = Array.isArray(currentUserResponse.user.education)
+                ? currentUserResponse.user.education.slice()
+                : [];
+            currentEducationArray.splice(index, 1);
+            const updatedEducationData = { education: currentEducationArray };
+            await makeApiCall(
+                "PUT",
+                `${urls.userDetails + userId}`,
+                updatedEducationData
+            );
+            toast.success("Education details deleted successfully!");
+        }
+        dispatch(deleteEducation(index));
     } catch (error) {
-      console.error("Error deleting education details:", error);
-      toast.error("Failed to delete education details.");
+        console.error("Error deleting education details:", error);
+        toast.error("Failed to delete education details.");
     }
+
+
   };
   
   const handleDeleteWorkExperience = async (index) => {
-    try {
+    // Existing logic
+
+     try {
       if (userId) {
-        const currentUserResponse = await makeApiCall(
-          "GET",
-          `${urls.userDetails + userId}`
-        );
-        let currentWorkExperienceArray = Array.isArray(
-          currentUserResponse.user.workExperience
-        )
-          ? currentUserResponse.user.workExperience.slice() // Make a copy of the array
-          : [];
-        currentWorkExperienceArray.splice(index, 1); // Remove the selected work experience entry
-        const updatedWorkExperienceData = {
-          workExperience: currentWorkExperienceArray,
-        };
-        await makeApiCall(
-          "PUT",
-          `${urls.userDetails + userId}`,
-          updatedWorkExperienceData
-        );
-        toast.success("Work experience details deleted successfully!");
+          const currentUserResponse = await makeApiCall(
+              "GET",
+              `${urls.userDetails + userId}`
+          );
+          let currentWorkExperienceArray = Array.isArray(currentUserResponse.user.workExperience)
+              ? currentUserResponse.user.workExperience.slice()
+              : [];
+          currentWorkExperienceArray.splice(index, 1);
+          const updatedWorkExperienceData = { workExperience: currentWorkExperienceArray };
+          await makeApiCall(
+              "PUT",
+              `${urls.userDetails + userId}`,
+              updatedWorkExperienceData
+          );
+          toast.success("Work experience details deleted successfully!");
       }
       dispatch(deleteWorkExperience(index));
-    } catch (error) {
+  } catch (error) {
       console.error("Error deleting work experience details:", error);
       toast.error("Failed to delete work experience details.");
-    }
+  }
+
   };
-  
-  // Confirmation popup handler
-  const handleConfirmDelete = async () => {
-    setShowConfirmation(false);
-    const index = deleteIndex;
-    if (deleteType === "education") {
-      await handleDeleteEducation(index);
-    } else if (deleteType === "workExperience") {
-      await handleDeleteWorkExperience(index);
-    }
-  };
-  
 
 
+
+  const handleCancelDelete = () => {
+    setShowPopup(false);
+  };
 
   const closeEducationModal = () => {
     setEducationModalOpen(false);
@@ -180,7 +140,7 @@ const UserProfile = () => {
       if (e.key === "Escape") {
         setEducationModalOpen(false);
         setWorkExperienceModalOpen(false);
-        setShowConfirmation(false); // Close confirmation popup on escape key press
+        // setShowConfirmation(false); // Close confirmation popup on escape key press
       }
     };
 
@@ -188,13 +148,16 @@ const UserProfile = () => {
       if (!e.target.closest(".modal-content")) {
         setEducationModalOpen(false);
         setWorkExperienceModalOpen(false);
-        setShowConfirmation(false); // Close confirmation popup on outside click
+        // setShowConfirmation(false); // Close confirmation popup on outside click
       }
     };
 
     const fetchUserProfile = async () => {
       try {
-        const userProfile = await makeApiCall("GET", `${urls.userDetails + userId}`);
+        const userProfile = await makeApiCall(
+          "GET",
+          `${urls.userDetails + userId}`
+        );
         setProfileDetails(userProfile);
       } catch (error) {
         console.error("Error fetching user profile:", error);
@@ -349,7 +312,9 @@ const UserProfile = () => {
             style={{ width: "100px", height: "100px" }}
           />
           <h2>{user.email ?? "AILA AILA"}</h2>
-          <p className="credits">{user.totalCreditsAvailable ?? 1000} Credits</p>
+          <p className="credits">
+            {user.totalCreditsAvailable ?? 1000} Credits
+          </p>
           <p className="role">Mentee</p>
         </div>
         <div className="profile-section">
@@ -377,7 +342,7 @@ const UserProfile = () => {
                 </div>
                 <button
                   className="delete-button"
-                  onClick={() => handleDeleteEducation(index)}
+                  onClick={() => handleDeleteRequest("education", index)}
                 >
                   Delete
                 </button>
@@ -413,8 +378,11 @@ const UserProfile = () => {
                 </div>
                 <button
                   className="delete-button"
-                  onClick={() => handleDeleteWorkExperience(index)}
+                  // onClick={() => handleDeleteWorkExperience(index)}
+                  onClick={() => handleDeleteRequest("workExperience", index)}
+
                 >
+            
                   Delete
                 </button>
               </div>
@@ -441,7 +409,11 @@ const UserProfile = () => {
               <Form>
                 <div className="form-group">
                   <label htmlFor="universityName">University Name</label>
-                  <Field type="text" id="universityName" name="universityName" />
+                  <Field
+                    type="text"
+                    id="universityName"
+                    name="universityName"
+                  />
                   <ErrorMessage
                     name="universityName"
                     component="div"
@@ -484,7 +456,10 @@ const UserProfile = () => {
         </Modal>
 
         {/* Work Experience Modal */}
-        <Modal show={isWorkExperienceModalOpen} handleClose={closeWorkExperienceModal}>
+        <Modal
+          show={isWorkExperienceModalOpen}
+          handleClose={closeWorkExperienceModal}
+        >
           <h2>Add Work Experience</h2>
           <Formik
             initialValues={{
@@ -533,7 +508,9 @@ const UserProfile = () => {
                 {values.designationHistory.map((designation, index) => (
                   <div key={index} className="designation-group">
                     <div className="form-group">
-                      <label htmlFor={`designationHistory[${index}].designation`}>
+                      <label
+                        htmlFor={`designationHistory[${index}].designation`}
+                      >
                         Designation
                       </label>
                       <Field
@@ -586,14 +563,16 @@ const UserProfile = () => {
             )}
           </Formik>
         </Modal>
+        {showPopup && (
+  <div className="popup">
+    <div className="popup-inner">
+      <h2>{confirmationMessage}</h2>
+      <button onClick={() => handleConfirmDelete({ isConfirmed: false, index: deleteIndex })}>Cancel</button>
+      <button onClick={() => handleConfirmDelete({ isConfirmed: true, index: deleteIndex })}>Delete</button>
 
-        {/* Confirmation Popup for Delete */}
-        <ConfirmationPopup
-          show={showConfirmation}
-          message={confirmationMessage}
-          onConfirm={handleConfirmDelete}
-          onCancel={() => setShowConfirmation(false)}
-        />
+    </div>
+  </div>
+)}
       </div>
     </>
   );
