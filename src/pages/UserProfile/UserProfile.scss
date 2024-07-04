@@ -53,12 +53,19 @@
       justify-content: space-between;
       align-items: center;
 
+      .designation_time{
+        width: 80%;
+        font-size: 15px;
+      }
+
       button {
         background-color: #eb5757;
         color: #fff;
         border: none;
         padding: 5px 10px;
         border-radius: 4px;
+        position: relative;
+        right:35px;
         cursor: pointer;
 
         &:hover {
@@ -72,6 +79,7 @@
       margin-bottom: 2px;
       max-width: 200px;
       word-wrap: break-word;
+      font-size: 13px;
     }
 
     .delete-button {

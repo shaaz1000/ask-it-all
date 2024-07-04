@@ -29,6 +29,9 @@ const UserProfile = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [deleteType, setDeleteType] = useState(""); 
 const [deleteIndex, setDeleteIndex] = useState(null);
+// const [dataUpdated,setDataUpdate]= useState("")
+const [dataUpdated, setDataUpdated] = useState(false);
+
   const userId = localStorage.getItem("userId");
 
   const handleAddEducation = () => {
@@ -81,7 +84,12 @@ const [deleteIndex, setDeleteIndex] = useState(null);
                 `${urls.userDetails + userId}`,
                 updatedEducationData
             );
+            console.log(updatedEducationData)
+
             toast.success("Education details deleted successfully!");
+
+            setDataUpdated(prev => !prev); // Trigger re-render by toggling dataUpdated state
+
         }
         dispatch(deleteEducation(index));
     } catch (error) {
@@ -112,6 +120,8 @@ const [deleteIndex, setDeleteIndex] = useState(null);
               updatedWorkExperienceData
           );
           toast.success("Work experience details deleted successfully!");
+          setDataUpdated(prev => !prev); // Trigger re-render by toggling dataUpdated state
+
       }
       dispatch(deleteWorkExperience(index));
   } catch (error) {
@@ -121,11 +131,6 @@ const [deleteIndex, setDeleteIndex] = useState(null);
 
   };
 
-
-
-  const handleCancelDelete = () => {
-    setShowPopup(false);
-  };
 
   const closeEducationModal = () => {
     setEducationModalOpen(false);
@@ -140,7 +145,6 @@ const [deleteIndex, setDeleteIndex] = useState(null);
       if (e.key === "Escape") {
         setEducationModalOpen(false);
         setWorkExperienceModalOpen(false);
-        // setShowConfirmation(false); // Close confirmation popup on escape key press
       }
     };
 
@@ -148,7 +152,6 @@ const [deleteIndex, setDeleteIndex] = useState(null);
       if (!e.target.closest(".modal-content")) {
         setEducationModalOpen(false);
         setWorkExperienceModalOpen(false);
-        // setShowConfirmation(false); // Close confirmation popup on outside click
       }
     };
 
@@ -173,7 +176,7 @@ const [deleteIndex, setDeleteIndex] = useState(null);
       document.removeEventListener("keydown", handleEscapeKeyPress);
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [userId]); // Empty dependency array ensures this effect runs only on mount
+  }, [userId,dataUpdated]); 
 
   const educationValidationSchema = Yup.object().shape({
     universityName: Yup.string()
@@ -243,7 +246,12 @@ const [deleteIndex, setDeleteIndex] = useState(null);
           `${urls.userDetails + userId}`,
           updatedEducationData
         );
+
+        console.log(updatedEducationData)
         toast.success("Education details updated successfully!");
+        // setDataUpdate("Updated")
+        setDataUpdated(prev => !prev); // Trigger re-render by toggling dataUpdated state
+
         resetForm();
       } catch (error) {
         console.error("Error updating education details:", error);
@@ -288,6 +296,9 @@ const [deleteIndex, setDeleteIndex] = useState(null);
           updatedWorkExperienceData
         );
         toast.success("Work Experience details updated successfully!");
+        // setDataUpdate("Updated")
+        setDataUpdated(prev => !prev); // Trigger re-render by toggling dataUpdated state
+
         resetForm();
       }
     } catch (error) {
@@ -298,6 +309,16 @@ const [deleteIndex, setDeleteIndex] = useState(null);
     setSubmitting(false);
     setWorkExperienceModalOpen(false);
   };
+
+
+  const formatDate = (dateString) => {
+    if (!dateString) return "Invalid Date";
+    const date = new Date(dateString);
+    if (isNaN(date)) return "Invalid Date";
+    const options = { year: 'numeric', month: 'long' };
+    return date.toLocaleDateString(undefined, options);
+  };
+  
 
   return (
     <>
@@ -311,9 +332,9 @@ const [deleteIndex, setDeleteIndex] = useState(null);
             alt="Profile"
             style={{ width: "100px", height: "100px" }}
           />
-          <h2>{user.email ?? "AILA AILA"}</h2>
+          <h2>{user?.email ?? "AILA AILA"}</h2>
           <p className="credits">
-            {user.totalCreditsAvailable ?? 1000} Credits
+            {user?.totalCreditsAvailable ?? 1000} Credits
           </p>
           <p className="role">Mentee</p>
         </div>
@@ -371,9 +392,19 @@ const [deleteIndex, setDeleteIndex] = useState(null);
             profileDetails?.user?.workExperience.map((work, index) => (
               <div key={index} className="profile-item">
                 <div>
+                
                   <p>
                     <strong>{work?.companyName}</strong>
                   </p>
+
+                  {work?.designationHistory?.map((designation, i) => (
+                <p key={i} className="designation_time">
+                  {designation.designation} (
+                  {formatDate(designation.fromDate)} -{" "}
+                  {formatDate(designation.toDate)})
+                </p>
+              ))}
+
                   <p className="edu_degree">{work.jobDescription}</p>
                 </div>
                 <button
@@ -505,7 +536,7 @@ const [deleteIndex, setDeleteIndex] = useState(null);
                     className="error-message"
                   />
                 </div>
-                {values.designationHistory.map((designation, index) => (
+                {values?.designationHistory?.map((designation, index) => (
                   <div key={index} className="designation-group">
                     <div className="form-group">
                       <label
