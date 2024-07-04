@@ -3,7 +3,7 @@ import PreviewContentCard from "../../../components/previewContentCard";
 import InstructorDetailsTable from "../../../components/instructorDetailsTable";
 import { InputAdornment, TextField } from "@mui/material";
 import { SearchOutlined } from "@mui/icons-material";
-import { ICON_FILTER } from "../../../static/assets/svg";
+import { ICON_FILTER } from "../../../static/assets/svg/Icons";
 import './Bookings.scss';
 import { mockInstructorData } from "../../../utils/constants";
 

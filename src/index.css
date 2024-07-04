@@ -8,6 +8,9 @@ body {
   /* src: url('./static/assets/css/Poppins/Poppins-Regular.ttf'); */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* scrollbar-color: #eb5757 #f5f5f5a6;
+  scrollbar-width: thin !important; */
 }
 html, #root {
   height: 100%;
@@ -19,9 +22,11 @@ h2 {
 .cta {
   color: #FFF;
   background-color: #EB5757;    
-  border: 1px solid #a6b1af;   
-    
+  border: 1px solid #a6b1af;
 }
 .cta:hover {
   background-color: #e34d4dde;
 }   
+.btn-back {
+  color: #222221 !important;
+}

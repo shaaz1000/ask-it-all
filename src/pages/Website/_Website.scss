@@ -1,9 +1,10 @@
 .Website {
   height: 100%;
+  width: fit-content;
   .frame1 {
     background-image: url("../../static/assets/svg/frames/Frame_1.svg");
     height: 100% !important;
-    background-position: center;
+    // background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -11,17 +12,15 @@
     top: 25%;
     left: 2%;
     width: 35%;
-    height: 50%;
     .content {
-      padding-left: 8%;
-      padding-top: 15%;
-      right: 8%;
-      position: absolute;
       h2 {
         margin: 5px 0;
       }
       .SearchField {
         width: 100%;
+      }
+      .subtext {
+        color: #333333;
       }
     }
   }
@@ -33,6 +32,10 @@
     }
   }
   .frame4 {
+    padding-top: 1%;
+    background-color: rgba(235, 87, 87, 0.103);
+    margin-top: 4%;
+
     h2 {
       font-weight: 500;
       padding-left: 2%;
@@ -52,63 +55,121 @@
       height: 35%;
     }
   }
+  h2 {
+    font-weight: 500;
+    padding-left: 2%;
+  }
   .frame6 {
-    height: 80%;
+    // height: 80%;
     padding: 2% 0;
     margin-bottom: 8%;
-    h2 {
-      font-weight: 500;
-      padding-left: 2%;
+
+    .frame6-content {
+      width: 40%;
+      margin: 0 5%;
     }
-    .background {
-      background-image: url("../../static/assets/png/Frame_2.png");
-      height: 100% !important;
-      background-repeat: no-repeat;
-      background-size: contain;
-      z-index: 2;
+  }
+  .background {
+    background-image: url("../../static/assets/png/Frame_2.png");
+    height: 100% !important;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    z-index: 2;
+  }
+  .collab-frame {
+    background-color: #738da017;
+    text-align: center;
+    padding: 2%;
+    margin-top: 3%;
+    .MuiPaper-root {
+      width: 20%;
+      height: 20%;
+    }
+    .collab-frame-content {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
     }
   }
   .frame5 {
-    background-color: #eb5757;
-    min-height: 40%;
-    .content-container {
-      display: flex;
-      justify-content: space-between;
+    margin: 10px 0;
+    display: flex;
+
+    .frame5-content {
+      margin: 0 auto;
     }
-    .card {
-      background: #fff;
-      border-radius: 15px;
-      text-align: center;
-      padding: 0 5%;
-      width: 30%;
-      .wrapped-text {
-        padding: 0 2%;
+    .content-container {
+      padding: 5% 0;
+      display: flex;
+      justify-content: space-evenly;
+      .steps {
+        display: flex;
+        height: -moz-fit-content;
+        height: fit-content;
+        width: 40%;
+        flex-direction: column;
+        text-align: left;
+        .flex-content-without-space {
+          margin: 3% 0;
+          .MuiPaper-root{ 
+            width: 100%;
+          }
+        }
+        p {
+          margin: auto 15px;
+          font-size: larger;
+          color: #860000;
+        }
+        .icon-color {
+          color: #860000;
+        }
+        .MuiAccordionDetails-root {
+          color: #5F5F5F;
+          font-size: small;
+        }
       }
+      .img-card {
+        width: 40%;
+        .MuiPaper-root {
+          border-radius: 30px;
+        }
+        .card {
+          border-radius: 30px;
+          text-align: center;
+          padding: 5% 8%;
+          background-color: #eb57573c;
+          .wrapped-text {
+            padding: 0 2%;
+          }
+        }
+      }
+    }
+
+    .subtext {
+      color: #202020;
     }
   }
   .frame7 {
-    height: 40%;
+    padding: 3% 0 5%;
   }
   .signup-info {
-    height: 80%;
     text-align: center;
-    padding: 2% 20% 0;
 
     .poppins-italic {
-      color: white;
-      font-size: 18px;
+      font-size: 1em;
       font-style: italic;
     }
   }
   .count {
-    padding: 50px 0;
     text-align: -webkit-center;
     .container {
+      padding: 3% 5%;
+      justify-self: center;
       display: table-cell;
-      width: 60%;
+      width: 100%;
+      background-color: #eb575727;
       h1 {
         text-align: center;
-        color: white;
         margin-bottom: 40px;
       }
       .number-card {
@@ -117,6 +178,7 @@
         text-align: center;
         padding: 10px;
         border-radius: 8px;
+        box-shadow: 0 1px 2px 1px #00000024;
         .poppins-bold {
           line-height: 0;
           margin: 30px;

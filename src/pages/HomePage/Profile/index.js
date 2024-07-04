@@ -2,7 +2,7 @@ import React from "react";
 import "./Profile.scss";
 import { Card, InputAdornment, TextField } from "@mui/material";
 import { SearchOutlined } from "@mui/icons-material";
-import { ICON_FILTER } from "../../../static/assets/svg";
+import { ICON_FILTER } from "../../../static/assets/svg/Icons";
 import PreviewContentCard from "../../../components/previewContentCard";
 import InstructorDetailsTable from "../../../components/instructorDetailsTable";
 import { mockInstructorData } from "../../../utils/constants";

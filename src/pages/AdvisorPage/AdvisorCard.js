@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import "./AdvisorCard.scss";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import Avatar from "../../assets/images/Avatar.png";
+import { calculateTotalExperience } from "../../utils/Validators";
 
 const AdvisorCard = ({ advisor }) => {
   const navigate = useNavigate();
 
   const handleCardClick = (e) => {
-    console.log("advisor", advisor);
     e.stopPropagation();
     navigate(`/advisor_profile`, { state: { advisor } });
   };
@@ -25,8 +25,12 @@ const AdvisorCard = ({ advisor }) => {
         <img src={Avatar} alt={advisor.name} className="advisor-card__image" />
         <div className="advisor-card__info">
           <h3 className="advisor-card__name">{advisor.name}</h3>
-          <p className="advisor-card__title">{advisor.title}</p>
-          <p className="advisor-card__experience">{advisor.experience}</p>
+          <p className="advisor-card__title">
+            {advisor.category.categoryName} Expert
+          </p>
+          <p className="advisor-card__experience">
+            {calculateTotalExperience(advisor.workExperience)} years
+          </p>
           <div className="advisor-card__stars">
             {[...Array(5)].map((_, i) => (
               <StarBorderIcon
@@ -41,13 +45,15 @@ const AdvisorCard = ({ advisor }) => {
       </div>
       <div className="advisor-card__additional">
         <p className="advisor-card__minutes">
-          {advisor.minutesCompleted} mins completed
+          {advisor.minutesCompleted ?? 50} mins completed
         </p>
         <p className="advisor-card__candidates">
-          Advised {advisor.candidatesAdvised} candidates
+          Advised {advisor.candidatesAdvised ?? 10} candidates
         </p>
         <div className="advisor-card__footer">
-          <p className="advisor-card__rate">₹{advisor.rate}/- per minute</p>
+          <p className="advisor-card__rate">
+            ₹{advisor.ratePerHour / 60}/- per minute
+          </p>
           <button
             className="advisor-card__connect"
             onClick={handleConnectClick}

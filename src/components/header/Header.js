@@ -18,7 +18,7 @@ function Header() {
     <div className="Header">
       <Avatar src="" sx={{ width: 30, height: 30 }} />
       <div className="headerGroup">
-        <SearchField placeholder={"Search..."}/>
+        <SearchField placeholder={"Search..."} />
         <Select />
         <Button width={"25%"} label="Log in" onClick={handleLoginClick} />
       </div>

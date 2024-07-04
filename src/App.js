@@ -15,6 +15,8 @@ import Profile from "./pages/HomePage/Profile";
 import Payment from "./pages/HomePage/Payment";
 import Reports from "./pages/HomePage/Reports";
 import History from "./pages/HomePage/History";
+import Advisor from "./pages/HomePage/Advisor";
+import Credits from "./pages/HomePage/Credits";
 import AddCredit from "./pages/AddCredit/index";
 import AdvisorPage from "./pages/AdvisorPage/AdvisorPage";
 import BookAdvisorPage from "./pages/AdvisorPage/BookAdvisorPage";
@@ -26,6 +28,7 @@ import { makeApiCall } from "./api/config";
 import { urls } from "./api/apiUrl";
 import PolicyPage from "./pages/PrivacyPolicy";
 import RefundPolicyPage from "./pages/RefundPolicy";
+import Website from "./pages/Website";
 
 function AppRoutes() {
   const dispatch = useDispatch();
@@ -59,6 +62,7 @@ function AppRoutes() {
       <Routes>
         {/* <Route exact path="/" element={<Homepage />} /> */}
         <Route exact path="/login" element={<LoginPage />} />
+        <Route exact path="/website" element={<Website />} />
         <Route exact path="/signup" element={<SignupPage />} />
         <Route exact path="/pop" element={<PopUp />} />
         <Route exact path="/terms" element={<TermsPage />} />
@@ -160,7 +164,7 @@ function AppRoutes() {
 
 function PrivateRoute({ children }) {
   const isUserIdAvailable = localStorage.getItem("userId");
-  return isUserIdAvailable ? children : <Navigate to="/login" />;
+  return isUserIdAvailable ? children : <Navigate to="/website" />;
 }
 
 export default AppRoutes;

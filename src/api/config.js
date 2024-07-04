@@ -19,14 +19,9 @@ export async function makeApiCall(method, url, data = null) {
     }
 
     const response = await axios(config);
-    console.log(response.data)
     return response.data; // Return the parsed data
   } catch (error) {
     console.log(error);
     throw error; // Re-throw the error for proper handling
   }
 }
-
-
-
-

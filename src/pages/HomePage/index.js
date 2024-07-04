@@ -15,7 +15,7 @@ import {
   ICON_PROFILE,
   ICON_REPORT,
   ICON_SETTINGS,
-} from "../../static/assets/svg";
+} from "../../static/assets/svg/Icons";
 import Menu from "../../components/menu";
 import { useLocation, useNavigate } from "react-router";
 import {
@@ -91,7 +91,7 @@ function Homepage({ children }) {
               src={logo}
               onClick={() => navigate(PROFILE)}
               className="logo"
-              style={{marginTop:'50px'}}
+              style={{ marginTop: "50px" }}
             />
             <span className="homepage-menu-container">
               <Menu
@@ -103,12 +103,19 @@ function Homepage({ children }) {
             </span>
           </div>
         </DashboardMenu>
-        <div style={{marginLeft:"240px"}}>
-        {children}
-        </div>
+        <div style={{ marginLeft: "240px" }}>{children}</div>
         <DashboardMenu anchor={"right"}>
-          <div  className="mm" style={{display:"flex",flexDirection:"row",justifyContent:"space-between", paddingLeft: "20px" ,paddingRight: "20px"}}>
-            <p style={{fontWeight:"600"}}>Your Profile</p>
+          <div
+            className="mm"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              paddingLeft: "20px",
+              paddingRight: "20px",
+            }}
+          >
+            <p style={{ fontWeight: "600" }}>Your Profile</p>
             <IconButton disableRipple>
               <MoreVert />
             </IconButton>

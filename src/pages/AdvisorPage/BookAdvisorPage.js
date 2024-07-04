@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdvisorCard from "./AdvisorCard";
 import "./BookAdvisorPage.scss";
 import Navbar from "../../components/navigation";
 import SearchIcon from "@mui/icons-material/Search";
+import { useNavigate } from "react-router-dom";
+import { makeApiCall } from "../../api/config";
+import { urls } from "../../api/apiUrl";
 
 const advisors = [
   {
@@ -55,17 +58,38 @@ const advisors = [
 const BookAdvisorPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedAdvisor, setSelectedAdvisor] = useState(null);
-
-
+  const [mentors, SetMentors] = useState([]);
+  const navigate = useNavigate();
   const filteredAdvisors = advisors.filter((advisor) =>
     advisor.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleAdvisorClick = (advisor) => {
-    console.log('Clicked advisor:', advisor);
     setSelectedAdvisor(advisor);
   };
 
+  const navigateToAddCredit = () => {
+    const isUserIdAvailable = localStorage.getItem("userId");
+    console.log(isUserIdAvailable);
+    isUserIdAvailable ? navigate("/credit") : navigate("/login");
+  };
+
+  const getAllMentors = async () => {
+    try {
+      const data = await makeApiCall("GET", urls.getAllMentors);
+      if (data.success) {
+        SetMentors(data.mentors);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllMentors();
+  }, []);
+
+  console.log(mentors);
   return (
     <>
       {" "}
@@ -85,15 +109,20 @@ const BookAdvisorPage = () => {
           <button className="filter-button">Filter ▾</button>
           <div className="balance-info">
             <span>Balance - $100</span>
-            <button className="add-credits-button">Add Credits</button>
+            <button
+              onClick={navigateToAddCredit}
+              className="add-credits-button"
+            >
+              Add Credits
+            </button>
           </div>
         </div>
         <div className="advisor-list">
-        {filteredAdvisors.map((advisor) => (
-        <div key={advisor.id} onClick={() => handleAdvisorClick(advisor)}>
-          <AdvisorCard key={advisor.id} advisor={advisor} />
-        </div>
-      ))}
+          {mentors.map((advisor) => (
+            <div key={advisor._id} onClick={() => handleAdvisorClick(advisor)}>
+              <AdvisorCard key={advisor.id} advisor={advisor} />
+            </div>
+          ))}
         </div>
       </div>
     </>

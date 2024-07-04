@@ -1,0 +1,67 @@
+.advisor-page {
+    .advisor-heading {
+        display: flex;
+        .advisor-title {
+            display: flex;
+            width: 60%;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .advisor-balance {
+            margin-left: auto;
+            text-align: right;
+            .btn-add-credit {
+                height: 45px;
+                width: 85%;
+                border-radius: 10px;
+                background-color: #ABDBDB;
+                color: #202020;
+                border: none;
+                font-weight: 600;
+                cursor: pointer;
+            }
+        }
+    }
+    .advisor-content {
+        .advisor-card {
+            padding: 0;
+            .advisor-card-content {
+                // display: flex;
+                .advisor-card-head {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 8px;
+                    .card-head-content {
+                        margin-left: 10px;
+                        .card-head-name {
+                            margin: 0;
+                            font-size: 20px;
+                        }
+                        .poppins-regular{
+                            margin: 0;
+                        }
+                    }
+                }
+                .poppins-regular{
+                    color: #5F5F5F;
+                    font-size: 14px;
+                    margin: 8px 0;
+                }
+                .card-action {
+                    display: flex;
+                    align-items: center;
+                    .btn-connect {
+                        margin-left: auto;
+                        padding: 5px 8px;
+                        font-size: 12px;
+                    }
+                    p{
+                        margin: 0;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+    
+}
