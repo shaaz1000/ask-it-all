@@ -357,9 +357,9 @@ const [dataUpdated, setDataUpdated] = useState(false);
               <div key={index} className="profile-item">
                 <div>
                   <p>
-                    <strong>{edu.universityName}</strong>
+                    <strong>{edu?.universityName}</strong>
                   </p>
-                  <p className="edu_degree">{edu.degree}</p>
+                  <p className="edu_degree">{edu?.degree}</p>
                 </div>
                 <button
                   className="delete-button"
@@ -399,13 +399,13 @@ const [dataUpdated, setDataUpdated] = useState(false);
 
                   {work?.designationHistory?.map((designation, i) => (
                 <p key={i} className="designation_time">
-                  {designation.designation} (
-                  {formatDate(designation.fromDate)} -{" "}
-                  {formatDate(designation.toDate)})
+                  {designation?.designation} (
+                  {formatDate(designation?.fromDate)} -{" "}
+                  {formatDate(designation?.toDate)})
                 </p>
               ))}
 
-                  <p className="edu_degree">{work.jobDescription}</p>
+                  <p className="edu_degree">{work?.jobDescription}</p>
                 </div>
                 <button
                   className="delete-button"

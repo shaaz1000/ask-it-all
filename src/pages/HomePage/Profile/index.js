@@ -1,17 +1,21 @@
 import React from "react";
 import "./Profile.scss";
-import { Card, InputAdornment, TextField } from "@mui/material";
-import { SearchOutlined } from "@mui/icons-material";
+import { Card, IconButton, InputAdornment, TextField } from "@mui/material";
+import { MoreVert, SearchOutlined } from "@mui/icons-material";
 import { ICON_FILTER } from "../../../static/assets/svg/Icons";
 import PreviewContentCard from "../../../components/previewContentCard";
 import InstructorDetailsTable from "../../../components/instructorDetailsTable";
 import { mockInstructorData } from "../../../utils/constants";
 import { useLocation, useNavigate } from "react-router";
+import DashboardMenu from "../DashboardMenu";
+import UserProfile from "../../UserProfile/Index";
+import ProfileMenu from "./ProfileMenu"
 
 function Profile() {
   const navigate = useNavigate();
 
   return (
+    <div>
     <div className="profile">
       <div className="search-field">
         <TextField
@@ -58,6 +62,10 @@ function Profile() {
       </PreviewContentCard>
       <br />
     </div>
+
+    <ProfileMenu/>
+
+        </div>
   );
 }
 

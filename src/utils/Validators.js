@@ -15,10 +15,10 @@ export const validateContactNumber = (contact) => {
 export const calculateTotalExperience = (workExperience) => {
   let totalExperienceInYears = 0;
 
-  workExperience.forEach((job) => {
-    const fromDate = new Date(job.designationHistory[0].fromDate);
+  workExperience?.forEach((job) => {
+    const fromDate = new Date(job?.designationHistory[0]?.fromDate);
     const toDate = new Date(
-      job.designationHistory[job.designationHistory.length - 1].toDate ||
+      job?.designationHistory[job?.designationHistory?.length - 1].toDate ||
         new Date()
     );
 

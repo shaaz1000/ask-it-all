@@ -76,22 +76,22 @@ function Advisor() {
                       sx={{ width: 100, height: 100 }}
                     />
                     <div className="card-head-content">
-                      <p className="card-head-name">{item.name}</p>
-                      <p className="poppins-regular">{item.expertIn}</p>
+                      <p className="card-head-name">{item?.name}</p>
+                      <p className="poppins-regular">{item?.expertIn}</p>
                       <p className="poppins-regular">
-                        Experience - {item.experience}
+                        Experience - {item?.experience}
                       </p>
                       <Ratings value={5}/>
                     </div>
                   </div>
                   <Divider />
-                  <p className="poppins-regular">{item.mins} mins completed.</p>
+                  <p className="poppins-regular">{item?.mins} mins completed.</p>
                   <p className="poppins-regular">
-                    Advised {item.noOfCandidates} candidates.
+                    Advised {item?.noOfCandidates} candidates.
                   </p>
                   <div className="card-action">
                     <p className="poppins-regular">
-                      &#8377;{item.amount}/- per minute
+                      &#8377;{item?.amount}/- per minute
                     </p>
                     <Button variant={"cta"} className="btn-connect">
                       <span className="poppins-semibold">Connect</span>

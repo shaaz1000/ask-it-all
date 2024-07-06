@@ -104,7 +104,7 @@ function Homepage({ children }) {
           </div>
         </DashboardMenu>
         <div style={{ marginLeft: "240px" }}>{children}</div>
-        <DashboardMenu anchor={"right"}>
+        {/* <DashboardMenu anchor={"right"}>
           <div
             className="mm"
             style={{
@@ -121,7 +121,7 @@ function Homepage({ children }) {
             </IconButton>
           </div>
           <UserProfile />
-        </DashboardMenu>
+        </DashboardMenu> */}
       </div>
     </div>
   ) : (

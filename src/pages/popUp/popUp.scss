@@ -4,6 +4,13 @@
   border: 41px solid #ebebeb;
   padding: 10px;
 
+
+  .error-message{
+    color:red;
+    margin-left: 12%;
+    margin-top:1%;
+    margin-bottom: 1%;
+  }
   .pop-details {
     display: flex;
 
@@ -170,7 +177,7 @@
           padding: 12px;
           gap: 17px;
           color: #ffffff;
-          box-shadow: 0px 14px 42px 0px #080f3426;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
           h4 {
             font-family: Poppins;
@@ -239,7 +246,7 @@
       }
       .education_details {
         position: relative;
-        right: 11%;
+        right: 12%;
       }
       .education_fields {
         height: 36px;
@@ -254,13 +261,16 @@
           line-height: 21px;
           text-align: left;
           margin-bottom: -27px;
+        
         }
         h5 {
           font-family: Poppins;
           font-size: 14px;
-          font-weight: 400;
+          font-weight: 300;
           line-height: 21px;
           text-align: left;
+          position: relative;
+          left:0%;
         }
         button {
           position: relative;
@@ -310,14 +320,18 @@
           font-weight: 500;
           line-height: 21px;
           text-align: left;
-          margin-bottom: -27px;
+          margin-bottom: -16px;
+          position: relative;
+          left:-3%;
         }
         h5 {
           font-family: Poppins;
           font-size: 14px;
-          font-weight: 400;
+          font-weight: 300;
           line-height: 21px;
           text-align: left;
+          position: relative;
+          left:-2%;
         }
         button {
           position: relative;
@@ -329,6 +343,7 @@
           padding: 4px, 8px, 4px, 8px;
           color: white;
           border-color: #eb5757;
+          bottom:90px
         }
       }
     }
@@ -398,6 +413,43 @@
     }
   }
 
+  .container_question{
+    display: flex;
+    gap:100px;
+    p{
+      margin-left: 2%;
+      font-size: 17px;
+      font-weight: 400px;
+    }
+    .input_question{
+      width: 75%;
+      font-family: poppins;
+      border-radius: 15px;
+      font-size: 18px;
+      color:#101010d4;
+      padding: 10px;
+      word-wrap: break-word;
+      box-sizing: border-box;
+      height: 100px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.096);
+      resize: vertical; /* Allow vertical resize but disable horizontal resize */
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      
+
+      input[type="text"]:focus {
+        border-color: #0066cc;
+        box-shadow: 0 0 8px rgba(0, 102, 204, 0.6);
+        outline: none;
+        box-sizing: border-box;
+        resize: vertical; /* Allow vertical resize but disable horizontal resize */
+    }
+    }
+  
+  }
+
   .time_slider {
     display: flex;
     gap: 10%;
@@ -446,6 +498,7 @@
       width: 130px;
       position: relative;
       left: 90%;
+      cursor: pointer;
     }
   }
   &::after {

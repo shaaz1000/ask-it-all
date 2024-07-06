@@ -6,10 +6,12 @@ import { SearchOutlined } from "@mui/icons-material";
 import { ICON_FILTER } from "../../../static/assets/svg/Icons";
 import './Bookings.scss';
 import { mockInstructorData } from "../../../utils/constants";
+import ProfileMenu from "../Profile/ProfileMenu";
 
 function Bookings() {
 
   return (
+    <div>
     <div className="bookings">
       <div className="search-field">
         <TextField
@@ -37,6 +39,8 @@ function Bookings() {
         <InstructorDetailsTable data={mockInstructorData} />
       </PreviewContentCard>
       <br />
+    </div>
+          <ProfileMenu/>
     </div>
   );
 }

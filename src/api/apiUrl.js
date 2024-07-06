@@ -8,4 +8,5 @@ export const urls = {
   mentorLogin: `${baseUrl}/mentors/login`,
   getAllMentors: `${baseUrl}/mentors`,
   getSingleUser: `${baseUrl}/users`,
+  booking:`${baseUrl}/booking`,
 };

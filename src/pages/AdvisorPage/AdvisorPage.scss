@@ -202,7 +202,7 @@
         padding: 12px;
         gap: 17px;
         color: #ffffff;
-        box-shadow: 0px 14px 42px 0px #080f3426;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
         h4 {
           font-family: Poppins;
@@ -308,6 +308,7 @@
         position: relative;
         top: -23px;
         left: 36px;
+        width: 178px;
       }
       .addIcon {
         position: relative;
@@ -328,7 +329,7 @@
           font-weight: 500;
           line-height: 21px;
           text-align: left;
-          margin-bottom: -27px;
+          margin-bottom: -14px;
         }
         h5 {
           font-family: Poppins;
@@ -340,7 +341,7 @@
         button {
           position: relative;
           left: 490px;
-          bottom: 63px;
+          bottom:132px;
           margin-top: 15px;
           background-color: #eb5757;
           border-radius: 8px;
@@ -393,12 +394,22 @@
       display: flex;
       gap: 20px;
     }
+    .container_date_text{
+      display: flex;
+      gap: 10px;
+
+      .fromDate_text,.toDate_text{
+        width: 24%;
+      }
+
+    }
     .selected_dates {
       display: flex;
       gap: 10px;
 
       .fromDate , .toDate {
         width: 24%;
+        
         button {
         font-family: Poppins;
         font-size: 14px;
@@ -408,8 +419,8 @@
         color: gray;
         border: 1px solid #3DA817;
         padding: 5px;
-        // border-color:   #3DA817;
         border-radius: 9px;
+        width: max-content;
       }}
     }
   }

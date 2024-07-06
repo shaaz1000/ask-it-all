@@ -60,7 +60,6 @@ function AppRoutes() {
   return (
     <Router>
       <Routes>
-        {/* <Route exact path="/" element={<Homepage />} /> */}
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/website" element={<Website />} />
         <Route exact path="/signup" element={<SignupPage />} />
