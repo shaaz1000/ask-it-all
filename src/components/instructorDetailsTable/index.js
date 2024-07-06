@@ -24,16 +24,25 @@ function InstructorDetailsTable({ data }) {
           </tr>
           {data?.map((li, index) => (
             <tr key={index}>
-              <td><UserInfo profileImage={li.image} title={li.name} subtitle={li.date}/></td>
               <td>
-                <Chip label={li.category} className="chip-color-peach" />
+                <UserInfo
+                  profileImage={li.image}
+                  title={li?.mentorId?.name ?? "Person"}
+                  subtitle={li.bookingDateTime}
+                />
               </td>
-              <td>{li.concept}</td>
+              <td>
+                <Chip
+                  label={li.categoryId.categoryName}
+                  className="chip-color-peach"
+                />
+              </td>
+              <td>{li.questionsAsked[0]}</td>
               <td>
                 <Chip
                   label="SHOW DETAILS"
                   className="chip-color-blue"
-                  onClick={li.actions}
+                  // onClick={li.actions}
                 />
               </td>
             </tr>
