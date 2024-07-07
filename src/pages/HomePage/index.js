@@ -35,7 +35,9 @@ function Homepage({ children }) {
   const location = useLocation();
 
   const handleLogout = () => {
+    localStorage.clear();
     dispatch(logout());
+    navigate("/");
   };
 
   const overviewFields = [

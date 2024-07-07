@@ -19,18 +19,31 @@ function Profile() {
   const [bookings, setBookings] = useState({
     upcoming: [],
   });
-
+  const userType = localStorage.getItem("userType");
   const getCurrentBookings = async () => {
     try {
-      const userId = localStorage.getItem("userId");
-      const data = await makeApiCall("GET", `${urls.booking}/user/${userId}`);
-      if (data.success) {
-        setBookings({
-          ...bookings,
-          upcoming: data.bookings.upcoming,
-        });
+      if (userType === "Mentee") {
+        const userId = localStorage.getItem("userId");
+        const data = await makeApiCall("GET", `${urls.booking}/user/${userId}`);
+        if (data.success) {
+          setBookings({
+            ...bookings,
+            upcoming: data.bookings.upcoming,
+          });
+        }
+      } else {
+        const mentorId = localStorage.getItem("mentorId");
+        const data = await makeApiCall(
+          "GET",
+          `${urls.booking}/mentor/${mentorId}`
+        );
+        if (data.success) {
+          setBookings({
+            ...bookings,
+            upcoming: data.bookings.upcoming,
+          });
+        }
       }
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -112,19 +125,18 @@ function Profile() {
             <p>Reach out to your top mentors!</p>
           </Card>
         </div>
-        {bookings.upcoming.length && bookings.upcoming.length > 0 && (
+        {bookings.upcoming.length && bookings.upcoming.length > 0 ? (
           <PreviewContentCard title="Upcoming Sessions">
             <InstructorDetailsTable data={bookings.upcoming} />
           </PreviewContentCard>
-        )}
+        ) : null}
 
         {/* <PreviewContentCard title="Questions Answered">
         <InstructorDetailsTable data={mockInstructorData} />
       </PreviewContentCard> */}
         <br />
       </div>
-
-      <ProfileMenu />
+      {userType === "Mentee" ? <ProfileMenu /> : null}
     </div>
   );
 }

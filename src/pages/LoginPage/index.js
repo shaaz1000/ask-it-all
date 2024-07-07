@@ -14,13 +14,16 @@ import { login } from "../../redux/features/auth/authSlice";
 import { makeApiCall } from "../../api/config";
 import { urls } from "../../api/apiUrl";
 import { useDispatch } from "react-redux";
+import { setMentor } from "../../redux/features/mentor/mentorSlice";
 
 function LoginPage() {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [userType, setUserType] = useState("Mentee"); // Add state for user type
   const [snackbar, setSnackbar] = useState(null);
   const navigate = useNavigate();
+
   const handleLogin = async (event) => {
     try {
       event.preventDefault();
@@ -35,18 +38,30 @@ function LoginPage() {
         setSnackbar({ message: errorMessage, color: "red", icon: "✖️" });
         return;
       }
-
       const userData = {
         email: username,
         password,
       };
-
-      const response = await makeApiCall("POST", urls.login, userData);
-      dispatch(setUser(response.user));
-      localStorage.setItem("token", response.token);
-      localStorage.setItem("userId", response.user._id);
+      if (userType === "Mentee") {
+        const response = await makeApiCall("POST", urls.login, userData);
+        if (response.success) {
+          dispatch(setUser(response.user));
+          localStorage.setItem("token", response.token);
+          localStorage.setItem("userId", response.user._id);
+        } else {
+          alert(response.message);
+        }
+      } else {
+        const response = await makeApiCall("POST", urls.mentorLogin, userData);
+        if (response.success) {
+          dispatch(setMentor(response.mentor));
+          localStorage.setItem("token", response.token);
+          localStorage.setItem("mentorId", response.mentor._id);
+        }
+      }
       dispatch(login());
       navigate("/profile");
+      localStorage.setItem("userType", userType);
     } catch (error) {
       console.log(error);
     }
@@ -101,6 +116,14 @@ function LoginPage() {
             <button type="button">Sign in with Google</button>
             <button type="button">Sign in with Facebook</button>
           </div>
+          <label>User Type</label>
+          <select
+            value={userType}
+            onChange={(e) => setUserType(e.target.value)}
+          >
+            <option value="Mentee">Mentee</option>
+            <option value="Mentor">Mentor</option>
+          </select>
           <label>Enter your username or email address</label>
           <input
             type="text"
@@ -115,7 +138,7 @@ function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <a className="signup-link" href="/login">
+          <a className="signup-link" href="/forgot-password">
             Forgot Password
           </a>
           <button type="submit">Log in</button>

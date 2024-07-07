@@ -29,22 +29,36 @@ import { urls } from "./api/apiUrl";
 import PolicyPage from "./pages/PrivacyPolicy";
 import RefundPolicyPage from "./pages/RefundPolicy";
 import Website from "./pages/Website";
+import { setMentor } from "./redux/features/mentor/mentorSlice";
 
 function AppRoutes() {
   const dispatch = useDispatch();
 
   const fetchUser = async () => {
     try {
-      const userId = localStorage.getItem("userId");
-      if (userId) {
+      const userType = localStorage.getItem("userType");
+      if (userType === "Mentee") {
+        const userId = localStorage.getItem("userId");
+        if (userId) {
+          const response = await makeApiCall(
+            "GET",
+            `${urls.getSingleUser}/${userId}`,
+            null
+          );
+          if (response.user) {
+            dispatch(setUser(response.user));
+            dispatch(login());
+          }
+        }
+      } else {
+        const mentorId = localStorage.getItem("mentorId");
         const response = await makeApiCall(
           "GET",
-          `${urls.getSingleUser}/${userId}`,
+          `${urls.getAllMentors}/${mentorId}`,
           null
         );
-        console.log(response, "Res the ponse");
-        if (response.user) {
-          dispatch(setUser(response.user));
+        if (response.success) {
+          dispatch(setMentor(response.mentor));
           dispatch(login());
         }
       }
@@ -162,8 +176,8 @@ function AppRoutes() {
 }
 
 function PrivateRoute({ children }) {
-  const isUserIdAvailable = localStorage.getItem("userId");
-  return isUserIdAvailable ? children : <Navigate to="/website" />;
+  const token = localStorage.getItem("token");
+  return token ? children : <Navigate to="/website" />;
 }
 
 export default AppRoutes;

@@ -17,19 +17,36 @@ function Bookings() {
     cancelled: [],
   });
 
+  const userType = localStorage.getItem("userType");
   const getCurrentBookings = async () => {
     try {
       const userId = localStorage.getItem("userId");
-      const data = await makeApiCall("GET", `${urls.booking}/user/${userId}`);
-      if (data.success) {
-        setBookings({
-          ...bookings,
-          cancelled: data.bookings.cancelled,
-          upcoming: data.bookings.upcoming,
-          pending: data.bookings.pending,
-        });
+      const mentorId = localStorage.getItem("mentorId");
+
+      if (userType === "Mentee") {
+        const data = await makeApiCall("GET", `${urls.booking}/user/${userId}`);
+        if (data.success) {
+          setBookings({
+            ...bookings,
+            cancelled: data.bookings.cancelled,
+            upcoming: data.bookings.upcoming,
+            pending: data.bookings.pending,
+          });
+        }
+      } else {
+        const data = await makeApiCall(
+          "GET",
+          `${urls.booking}/mentor/${mentorId}`
+        );
+        if (data.success) {
+          setBookings({
+            ...bookings,
+            cancelled: data.bookings.cancelled,
+            upcoming: data.bookings.upcoming,
+            pending: data.bookings.pending,
+          });
+        }
       }
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -74,7 +91,7 @@ function Bookings() {
         ) : null}
         <br />
       </div>
-      <ProfileMenu />
+      {userType === "Mentee" ? <ProfileMenu /> : null}
     </div>
   );
 }
